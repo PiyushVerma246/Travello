@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+
+        body{
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+        }
+
+        .container{
+            height: 350px;
+            margin: auto;
+            position: relative;
+            width: 90%;
+            display: grid;
+            place-items: center;
+        }
+
+        .slide-container{
+            display: flex;
+            width: calc(250px * 18);
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0%{
+                transform: translateX(0);
+            }
+            100%{
+                transform: translateX(calc(-250px * 9));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="slide-container">
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+            <div class="slide-image">
+                <img src="cave beach.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

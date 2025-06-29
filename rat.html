@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelo - Flight Search</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background-color: #f5ebeb;
+        }
+
+        .search-section {
+            background-color: #fff;
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 162, 226, 0.2);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .header h1 {
+            color: #00A2E2;
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .sub-heading {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .flash-sale {
+            background-color: #00A2E2;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .flight-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .search-btn:hover {
+            background-color: #028bc1;
+        }
+
+        .trip-type {
+            width: 100vw;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .trip-type label {
+            cursor: pointer;
+            color: #00A2E2;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #00A2E2;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #00A2E2;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        .form-group input:hover {
+            border-color: #FF3D2D;
+        }
+
+        .passengers {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .passengers label,
+        .passengers select {
+            width: 30%;
+        }
+
+        .search-btn {
+            background-color: #00A2E2;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group-passenger {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #00A2E2;
+            border-radius: 4px;
+            width: 100px;
+        }
+
+        select:hover {
+            border-color: #FF3D2D;
+        }
+
+        .childern:hover {
+            border-color: #FF3D2D;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-section">
+        <div class="header">
+            <h1>Find Your Perfect Flight with Travelo</h1>
+            <p class="sub-heading">Explore, dream, and fly with unbeatable deals!</p>
+        </div>
+        <div class="flash-sale">
+            <p>Limited Time Offer: Enjoy flights starting at just Rs. 999. Hurry up!</p>
+        </div>
+        <form class="flight-form">
+            <div class="trip-type">
+                <label>
+                    <input type="radio" name="trip" value="oneway" checked> One Way
+                </label>
+                <label>
+                    <input type="radio" name="trip" value="roundtrip"> Round Trip
+                </label>
+                <label>
+                    <input type="radio" name="trip" value="multicity"> Multi-city
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="from">From:</label>
+                <select id="from" name="from">
+                    <option value="">Select departure city</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Bangalore">Bangalore</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="to">To:</label>
+                <select id="to" name="to">
+                    <option value="">Select destination city</option>
+                    <option value="London">London</option>
+                    <option value="New York">New York</option>
+                    <option value="Dubai">Dubai</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="departure">Depart on:</label>
+                <input type="date" id="departure" name="departure">
+            </div>
+            <div class="form-group-passengers">
+                <label for="adults">Adults:</label>
+                <select id="adults" name="adults">
+                    <option value="1">1 Adult</option>
+                    <option value="2">2 Adults</option>
+                    <option value="3">3 Adults</option>
+                </select>
+                <label for="children">Children:</label>
+                <select id="children" name="children">
+                    <option value="0">0 Children</option>
+                    <option value="1">1 Child</option>
+                    <option value="2">2 Children</option>
+                </select>
+                <label for="infants">Infants:</label>
+                <select id="infants" name="infants">
+                    <option value="0">0 Infants</option>
+                    <option value="1">1 Infant</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <button type="submit" class="search-btn">Search Flights</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

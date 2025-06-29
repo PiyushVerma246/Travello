@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating System</title>
+    <style>
+        /* Basic styling for the container */
+        .star-rating ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        /* Styling for the star (empty by default) */
+        .star-rating .star {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        /* Fill the star with color when it's selected */
+        .star-rating .star.selected {
+            color: #ff9900;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="star-rating">
+        <ul>
+            <li><i class="star">★</i></li>
+            <li><i class="star">★</i></li>
+            <li><i class="star">★</i></li>
+            <li><i class="star">★</i></li>
+            <li><i class="star">★</i></li>
+        </ul>
+    </div>
+
+    <script>
+        const stars = document.querySelectorAll('.star-rating .star');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                stars.forEach(star => star.classList.remove('selected'));
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.add('selected');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,441 @@
+/* S-O-M-E   C-O-M-M-O-N   P-R-O-P-E-R-T-I-E-S */
+@font-face {
+    font-family: exploreFont;
+    src: url('Veneer.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.font {
+    font-family: 'Acme', sans-serif;
+}
+
+.explore {
+    font-family: exploreFont;
+}
+
+body,
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #d8d8d8;
+}
+
+.sec-1 {
+    width: 100%;
+    height: 70%;
+    background-image: url(land-img/destinations/mounts.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+
+    color: white;
+}
+
+.sec-1 nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.option {
+    gap: 2vw;
+    display: flex;
+    margin-right: 4vw;
+    margin-top: 2vw;
+    font-size: 1.5vw;
+    height: 2vw;
+
+}
+
+.sec-1 img {
+    width: 14vw;
+    margin-top: -2.5vw;
+    margin-left: 3vw;
+    height: 12vw;
+}
+
+.option button {
+    height: 2vw;
+    width: 8vw;
+    font-size: 1.4vw;
+    /* font-weight: 600; */
+    border-radius: 50px;
+    border: none;
+    /* padding: 10px 20px; */
+
+}
+
+.bottom {
+    /* align-items: end; */
+    margin-top: 19vw;
+    margin-left: 3vw;
+    /* justify-items: end; */
+    /* justify-content: end; */
+    /* position: relative; */
+    gap: 1.5vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name {
+    margin-right: 4vw;
+    font-size: 3vw;
+    text-shadow: 2px 2px 2px black;
+    color: #FF3D2D;
+}
+
+.bottom button {
+    background-color: rgba(241, 236, 236, 0.712);
+    border: none;
+    padding: 0.8vw 1.3vw;
+    font-weight: 600;
+    font-size: 1.1vw;
+}
+
+.bottom button i {
+    font-size: 1.25vw;
+}
+
+.sec-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5vw;
+    width: auto;
+    height: auto;
+    margin-bottom: 3vw;
+}
+.part1{
+    margin-left: 7.82vw;
+}
+
+.fullbox {
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr 0fr;
+    /* margin-left: 7.82vw; */
+    margin-top: 5vw;
+    gap: 1vw;
+}
+
+.box {
+    background-color: white;
+    width: 12vw;
+    height: 6.5vw;
+}
+
+.form {
+    background-color: white;
+    width: 30vw;
+    height: auto;
+    /* margin-left: 2.5vw; */
+    margin-top: 5vw;
+}
+
+.info {
+
+    background-color: white;
+    width: 51vw;
+    height: 40vw;
+    /* margin-left: 7.82vw; */
+    margin-top: 5vw;
+}
+
+
+.content {
+    width: 90%;
+    margin-left: 2.5vw;
+}
+
+.main-head {
+    font-weight: 700;
+    font-size: 1.8vw;
+}
+
+.content p {
+    font-size: 1.2vw;
+    margin-top: 0.7vw;
+    color: #8d8a8a;
+}
+
+.chart {
+    display: flex;
+    /* gap: 10vw; */
+    margin-top: 3vw;
+}
+
+.dark {
+    font-weight: 600;
+}
+
+.line {
+    width: 15vw;
+    font-size: 1.1vw;
+    gap: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.line2 {
+    width: 32vw;
+    font-size: 1.1vw;
+    gap: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.inc {
+    line-height: 1.8vw;
+}
+
+.map {
+    background-color: white;
+    width: 51vw;
+    height: 35vw;
+    /* margin-left: 7.82vw; */
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.review {
+    background-color: white;
+    width: 51vw;
+    height: 21vw;
+    /* margin-left: 7.82vw; */
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.map span {
+    margin-left: 2.5vw;
+    font-weight: 700;
+    font-size: 1.8vw;
+}
+
+.review p {
+    margin-left: 2.5vw;
+    font-weight: 700;
+    font-size: 1.8vw;
+}
+
+.person-review span {
+    /* margin-left: 2.5vw; */
+    font-weight: 700;
+    font-size: 1.8vw;
+}
+
+.map iframe {
+    margin-left: 2.5vw;
+    margin-top: 2.5vw;
+    width: 46.5vw;
+    height: 25vw;
+}
+
+.cont {
+    margin-top: 2vw;
+    margin-left: 2.5vw;
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr 0fr;
+    gap: 2vw;
+}
+
+.rate {
+    display: flex;
+    gap: 1vw;
+    width: 6vw;
+    flex-direction: column;
+}
+
+.star {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+
+}
+
+.load {
+    gap: 1vw;
+    margin-top: 0.2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+.person-review {
+    background-color: white;
+    width: 51vw;
+    height: 21vw;
+    /* margin-left: 7.82vw; */
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+
+    padding: 1vw 0vw;
+}
+
+.top {
+    border-top: 3px solid #FF3D2D;
+    padding: 2vw 3vw;
+    box-shadow: 0px 2px 7px rgb(175, 173, 173);
+}
+
+.top i {
+    font-size: 1.9vw;
+}
+
+.top span {
+    font-size: 1.2vw;
+}
+
+.old_prz {
+    text-decoration: line-through;
+    color: #FF3D2D;
+}
+
+.book {
+    padding: 3vw;
+    gap: 0.7vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.book span {
+    font-size: 14px;
+    font-weight: 520;
+}
+
+.book input {
+    border-radius: 2vw;
+    border: 1px solid rgb(207, 205, 205);
+    height: 2.7vw;
+    margin-left: -0.4vw;
+}
+
+.book input::placeholder {
+    padding-left: 1vw;
+}
+
+.terms {
+    margin-top: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.line1 {
+    display: flex;
+    gap: 0.4vw;
+}
+
+.line1 input {
+    height: 20px;
+}
+
+.line1 p {
+    font-size: 14px;
+}
+
+.btns {
+    margin-top: 2vw;
+    border: none;
+    border-radius: 2vw;
+    padding: 0.5vw;
+    background-color: #FF3D2D;
+    color: white;
+    font-size: 1.8vw;
+    /* margin-left: 10vw; */
+    margin-bottom: 3vw;
+}
+
+.sup {
+    padding: 1.5vw;
+    font-size: 2vw;
+}
+
+.liner {
+    height: 1px;
+    width: 86%;
+    margin-left: 1.5vw;
+    background-color: rgb(179, 167, 167);
+}
+
+.terms i {
+    color: #FF3D2D;
+}
+
+.terms i span {
+    color: black;
+    font-family: 'Acme', sans-serif;
+}
+
+.person-review p {
+    color: rgb(165, 157, 157);
+    /* margin-left: 2.5vw; */
+    margin-top: 0.2vw;
+}
+
+.person-review textarea {
+    /* margin-left: 2.5vw; */
+    width: 40vw;
+}
+
+.hed {
+
+    margin-bottom: 0.7vw;
+    font-weight: lighter;
+    color: rgb(83, 82, 82);
+    margin-top: 2vw;
+}
+
+.person-review {
+    height: auto;
+    padding-left: 2.5vw;
+}
+
+.condition {
+    margin-top: 1.5vw;
+    display: flex;
+}
+
+.condition span {
+    font-size: 1.1vw;
+    color: rgb(107, 105, 105);
+}
+
+.star-rating ul {
+    margin: -1vw -0.3vw;
+    list-style: none;
+    display: flex;
+}
+
+.star-rating .star {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star-rating .star.selected {
+    color: #ff9900;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box i{
+    color: #FF3D2D;
+    font-size: 3vw;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Right Section on Scroll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .left-section,
+        .right-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-section {
+            flex: 3;
+            height: 150vh;
+            /* To make scrolling necessary */
+        }
+
+        .right-section {
+            flex: 1;
+            position: -webkit-sticky;
+            /* For Safari */
+            position: sticky;
+            top: 20px;
+            /* Distance from the top */
+            background: #ececec;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: top 0.3s ease;
+            /* Smooth transition */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>Left Section</h1>
+            <p>Scroll down to see the effect...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>More content here...</p>
+            <p>Keep scrolling...</p>
+            <p>Almost there!</p>
+            <p>End of content.</p>
+        </div>
+
+        <div class="right-section">
+            <h2>Sticky Right Section</h2>
+            <p>This section stays sticky while scrolling.</p>
+            <p>It will unstick when the left section ends.</p>
+        </div>
+    </div>
+
+    <script>
+        const rightSection = document.querySelector('.right-section');
+        const leftSection = document.querySelector('.left-section');
+
+        // Adjust sticky behavior based on scroll position
+        window.addEventListener('scroll', () => {
+            const leftBottom = leftSection.getBoundingClientRect().bottom;
+            const windowHeight = window.innerHeight;
+
+            if (leftBottom < windowHeight) {
+                rightSection.style.top = `${leftBottom - windowHeight}px`;
+            } else {
+                rightSection.style.top = '20px';
+            }
+        });
+
+    </script>
+</body>
+
+</html>
