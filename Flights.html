@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="travello.css">
+    <title>Flights - Travello</title>
+    <style>
+        .service-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('land-img/destinations/london.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .booking-container {
+            max-width: 1200px;
+            margin: -10vh auto 10vh;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 61, 45, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            color: #FF3D2D;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 15px;
+            background: #000;
+            border: 2px solid #24bdfa;
+            color: white;
+            border-radius: 10px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            box-shadow: 0 0 15px rgba(255, 61, 45, 0.5);
+            border-color: #FF3D2D;
+        }
+
+        .book-now {
+            grid-column: 1 / -1;
+            padding: 20px;
+            background: #FF3D2D;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .book-now:hover {
+            background: #00A2E2;
+            transform: scale(1.02);
+        }
+
+        .featured-flights {
+            padding: 50px 5vw;
+        }
+
+        .flight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .flight-card {
+            background: #111;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .flight-card:hover {
+            transform: translateY(-10px);
+            border-color: #FF3D2D;
+        }
+
+        .flight-info {
+            padding: 20px;
+        }
+
+        .flight-info h4 {
+            color: #00A2E2;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price-tag {
+            color: #FF3D2D;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body style="background: #000; color: white; margin: 0; font-family: 'Exo 2', sans-serif;">
+    <div class="service-hero">
+        <h1 class="explore" style="font-size: 5rem; color: #FF3D2D; text-shadow: 3px 3px black;">FLIGHTS</h1>
+        <p class="font" style="font-size: 1.5rem; color: #00A2E2;">The sky is not the limit, it's only the beginning.
+        </p>
+    </div>
+
+    <div class="booking-container">
+        <form class="booking-form">
+            <div class="form-group">
+                <label>From</label>
+                <input type="text" placeholder="Origin City">
+            </div>
+            <div class="form-group">
+                <label>To</label>
+                <input type="text" placeholder="Destination City">
+            </div>
+            <div class="form-group">
+                <label>Departure</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>Return</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>Passengers</label>
+                <select>
+                    <option>1 adult</option>
+                    <option>2 adults</option>
+                    <option>Family (2+2)</option>
+                </select>
+            </div>
+            <button class="book-now font">SEARCH FLIGHTS <i class="fa-solid fa-plane-departure"></i></button>
+        </form>
+    </div>
+
+    <section class="featured-flights">
+        <div class="upper-headings">
+            <p class="first-line font">POPULAR ROUTES</p>
+            <h2 class="second-line explore">FLY AROUND THE WORLD</h2>
+        </div>
+        <div class="flight-grid">
+            <div class="flight-card">
+                <div style="height: 200px; background: url('land-img/destinations/london.webp') center/cover;"></div>
+                <div class="flight-info">
+                    <h4 class="explore">London Express</h4>
+                    <p class="font">Non-stop luxury flight from New York.</p>
+                    <span class="price-tag">$450</span>
+                </div>
+            </div>
+            <div class="flight-card">
+                <div style="height: 200px; background: url('land-img/destinations/sydney.jpg') center/cover;"></div>
+                <div class="flight-info">
+                    <h4 class="explore">Sydney Skyway</h4>
+                    <p class="font">Premium economy with top-tier service.</p>
+                    <span class="price-tag">$890</span>
+                </div>
+            </div>
+            <div class="flight-card">
+                <div style="height: 200px; background: url('land-img/destinations/maldives.jpg') center/cover;"></div>
+                <div class="flight-info">
+                    <h4 class="explore">Maldives Island Hop</h4>
+                    <p class="font">Reach paradise in half the time.</p>
+                    <span class="price-tag">$320</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align: center; padding: 50px;">
+        <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
+    </div>
+</body>
+
+</html>

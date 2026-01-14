@@ -1581,9 +1581,342 @@ ol .ico .descr {
 }
 
 .store {
+    transform: rotateZ(60deg);
+}
+
+.hexagons:after {
+    transform: rotateZ(-60deg);
+}
+
+.hexagons:hover {
+    border-radius: 50px;
+    transition: 0.5s;
+}
+
+.hexagons:hover:before {
+    border-radius: 50px;
+    transition: 0.5s;
+}
+
+.hexagons:hover:after {
+    border-radius: 50px;
+    transition: 0.5s;
+}
+
+.targets {
+    width: 105px;
+}
+
+.hexagons img {
+    width: 35px;
+    height: 35px;
+}
+
+#instas {
+    margin-left: -2px;
+    margin-bottom: 2px;
+}
+
+#yous {
+    margin-left: -2px;
+    margin-bottom: 2px;
+}
+
+#facenews {
+    margin-left: -5px;
+    margin-bottom: 2px;
+}
+
+#tweets {
+    margin-left: -2px;
+    margin-bottom: 2px;
+}
+
+@media (max-width: 720px) {
+    .butters {
+        margin-left: 20vw;
+    }
+}
+
+.last {
+    padding-left: 7vw;
+    padding-bottom: 100px;
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr 0fr 0fr;
+    gap: 7vw;
+}
+
+.mount-logo img {
+    margin-top: 10vh;
+    width: 13vw;
+    height: 15vh;
+    margin-left: -0.9vw;
+}
+
+.country-btn {
+    width: 10vw;
+    background-color: #00A2E2;
+    font-size: 17px;
+    text-shadow: 1.5px 1px 1px black;
+    border: none;
+    border-radius: 5px;
+    height: 5vh;
+    box-shadow: 0px 0px 5px white;
+}
+
+.learn-more {
+    display: flex;
+    color: #00A2E2;
+    flex-direction: column;
+    padding-top: 5.5vh;
+    width: 10vw;
+}
+
+.more {
+    font-size: 1.5vw;
+    color: #FF3D2D;
+    text-shadow: 1px 1px 1px #00A2E2;
+    font-weight: 600;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 1.7vh;
+}
+
+.content span {
+    font-size: 1.1vw;
+}
+
+.social-medias {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr 0fr;
+    margin-top: 4.3vh;
+    margin-left: -1vw;
+}
+
+.insta-x {
+    height: 10.5vh;
+}
+
+.facebook-x {
+    height: 6.3vh;
+    margin-top: 1.7vh;
+}
+
+.youtube-x {
+    height: 9.2vh;
+}
+
+.tweet-x {
+    margin-top: 3px;
+    margin-left: -0.7vw;
+    height: 8.7vh;
+}
+
+.apple button {
+    width: 10.3vw;
+    height: 5.5vh;
+    border: none;
+    border-radius: 0.5vw;
+    box-shadow: 0px 0px 10px #00A2E2;
+    background-color: #000000;
+}
+
+.apple-store {
+    display: flex;
+}
+
+.apple-store img {
+    filter: invert(100);
+    margin-top: -3px;
+    margin-left: -1px;
+    height: 6.2vh;
+}
+
+.line-x {
+    height: 1px;
+    background-color: blueviolet;
+    opacity: 0.2;
+    box-shadow: 1px 1px 1px white;
+    width: 87vw;
+    margin-left: 5vw;
+    margin-top: -7vh;
+}
+
+.download-btn {
+    margin-left: 3vw;
+    margin-top: 1.3vh;
+}
+
+.apple-store span {
+    text-shadow: 2px 2px 2px #FF3D2D, 2px 2px 2px black, 2px 2px 2px black;
+    font-weight: 600;
+    font-size: 0.8vw;
+    color: #ccc;
+}
+
+.footer marquee {
+    margin-left: 4.5vw;
+    margin-top: -1vh;
+    width: 87vw;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px #FF3D2D, 2px 2px 2px black, 2px 2px 2px black;
+}
+
+#appl {
+    margin-top: 1vh;
+}
+
+.store {
     margin-top: -4px;
     font-weight: 600;
     font-size: 1.4vw;
     text-shadow: 2px 2px 2px #00A2E2, 2px 2px 2px black, 2px 2px 2px black;
     color: #FF3D2D;
+}
+/* C-A-T-E-G-O-R-Y   D-E-S-T-I-N-A-T-I-O-N-S */
+.category-destinations {
+    padding: 8vh 5vw;
+    background: linear-gradient(to bottom, #000, #111);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 6vh;
+    perspective: 1000px;
+}
+
+.cat-card {
+    text-decoration: none;
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #1a1a1a;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cat-card:hover {
+    transform: translateY(-15px) rotateX(5deg);
+    box-shadow: 0 30px 60px rgba(255, 61, 45, 0.2);
+    border: 1px solid rgba(255, 61, 45, 0.4);
+}
+
+.cat-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: brightness(0.8);
+}
+
+.cat-card:hover .cat-img {
+    transform: scale(1.1);
+    filter: brightness(0.6);
+}
+
+.cat-content {
+    position: relative;
+    padding: 40px 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95));
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.cat-card:hover .cat-content {
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(15px);
+}
+
+.cat-card h3 {
+    font-size: 2.2rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 12px;
+    transform: translateY(20px);
+    transition: transform 0.5s ease;
+}
+
+.cat-card:hover h3 {
+    transform: translateY(0);
+    color: #FF3D2D;
+}
+
+.cat-card p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 25px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease 0.1s;
+}
+
+.cat-card:hover p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #FF3D2D;
+    color: white;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.2s;
+    box-shadow: 0 5px 15px rgba(255, 61, 45, 0.4);
+}
+
+.cat-card:hover .explore-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.explore-btn:hover {
+    background: #00A2E2;
+    box-shadow: 0 5px 15px rgba(0, 162, 226, 0.4);
+}
+
+.box-gall {
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    .cat-card {
+        height: 400px;
+    }
+    .cat-card h3 {
+        font-size: 1.8rem;
+        transform: translateY(0);
+    }
+    .cat-card p, .explore-btn {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

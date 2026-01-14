@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="travello.css">
+    <title>Desert Safari - Travello</title>
+    <style>
+        .destination-hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('land-img/destinations/desert.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .desert-content {
+            padding: 80px 10vw;
+            background: #0a0500;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: #1a0f05;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 165, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: #FF3D2D;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 61, 45, 0.1);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: #FF3D2D;
+            margin-bottom: 20px;
+        }
+
+        .info-card h4 {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .booking-cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('land-img/destinations/desert.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 100px 5vw;
+            text-align: center;
+        }
+
+        .cta-btn {
+            background: #FF3D2D;
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 0 20px rgba(255, 61, 45, 0.4);
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #FFD700;
+            color: black;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body style="background: #000; color: white; margin: 0; font-family: 'Exo 2', sans-serif;">
+    <div class="destination-hero">
+        <h1 class="explore" style="font-size: 5rem; color: #FFD700; text-shadow: 4px 4px black;">DESERT SAFARI</h1>
+        <p class="font" style="font-size: 1.8rem; color: #FF3D2D;">Adventure in the Heart of the Dunes</p>
+    </div>
+
+    <section class="desert-content">
+        <div class="upper-headings" style="padding-top: 0;">
+            <p class="first-line font">ENDLESS GOLDEN SANDS</p>
+            <h2 class="second-line explore">DISCOVER DESERT MAGIC</h2>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-camel"></i>
+                <h4 class="explore">Camel Trekking</h4>
+                <p class="font">Experience the traditional way of desert travel as you traverse the vast dunes at
+                    sunset.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-campground"></i>
+                <h4 class="explore">Luxury Camps</h4>
+                <p class="font">Stay in premium Bedouin-style tents with five-star amenities under the starlit desert
+                    sky.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-dizzy"></i>
+                <h4 class="explore">Dune Bashing</h4>
+                <p class="font">An adrenaline-pumping ride across the dunes in a 4x4 vehicle with professional drivers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="wildlife-section"
+        style="padding: 100px 10vw; background: #1a0f05; display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <p class="first-line font" style="color: #FFD700; margin-bottom: 10px;">DESERT ECOSYSTEM</p>
+            <h2 class="explore" style="font-size: 3rem; color: white; margin-bottom: 20px;">WILDLIFE ENCOUNTER</h2>
+            <p class="font" style="line-height: 1.8; color: #ccc;">The desert is far from barren. Meet the resilient
+                inhabitants of the dunes, from the majestic Arabian Oryx to the swift Saker Falcon. Our
+                conservation-focused safaris allow you to observe these creatures in their natural habitat without
+                disturbing their peace.</p>
+            <ul class="font" style="color: #FF3D2D; list-style: none; padding: 0; margin-top: 20px;">
+                <li><i class="fas fa-check-circle"></i> Guided Falconry Displays</li>
+                <li><i class="fas fa-check-circle"></i> Gazelle Spotting Tours</li>
+                <li><i class="fas fa-check-circle"></i> Nature Photography Workshops</li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 300px; position: relative;">
+            <img src="land-img/destinations/desert.jpg" alt="Desert Wildlife"
+                style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); filter: contrast(1.2) brightness(0.8);">
+            <div style="position: absolute; bottom: -20px; right: -20px; background: #FF3D2D; padding: 20px; border-radius: 10px; color: white;"
+                class="explore">
+                <span style="font-size: 2rem;">150+</span><br>Species to Discover
+            </div>
+        </div>
+    </section>
+
+    <section class="stargazing"
+        style="height: 60vh; background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10vw;">
+        <!-- CSS Stars -->
+        <div
+            style="position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; box-shadow: 10vw 20vh white, 30vw 10vh white, 50vw 40vh white, 70vw 20vh white, 90vw 50vh white, 20vw 80vh white, 40vw 70vh white, 60vw 90vh white, 80vw 60vh white; opacity: 0.5;">
+        </div>
+        <p class="first-line font" style="color: #00A2E2;">UNVEIL THE UNIVERSE</p>
+        <h2 class="explore" style="font-size: 4rem; text-shadow: 0 0 20px #00A2E2;">CELESTIAL STARGAZING</h2>
+        <p class="font" style="max-width: 800px; margin-top: 20px; font-size: 1.2rem; position: relative; z-index: 1;">
+            Away from city lights, the desert
+            sky transforms into a canvas of billions of stars. Join our expert astronomers for an evening of cosmic
+            discovery, using professional telescopes to explore the Milky Way.</p>
+    </section>
+
+    <section class="packages" style="padding: 100px 10vw; background: #000;">
+        <div class="upper-headings" style="text-align: center;">
+            <p class="first-line font">CURATED EXPERIENCES</p>
+            <h2 class="second-line explore">CHOOSE YOUR ADVENTURE</h2>
+        </div>
+        <div class="info-grid" style="margin-top: 50px;">
+            <div class="info-card" style="text-align: center;">
+                <h3 class="explore" style="color: #ccc;">Basic Safari</h3>
+                <div style="font-size: 3rem; margin: 20px 0;" class="explore">$49<span
+                        style="font-size: 1rem;">/person</span></div>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+                <ul class="font" style="list-style: none; padding: 0; line-height: 2.5; color: #999;">
+                    <li>Dune Bashing (20 mins)</li>
+                    <li>Camel Ride Experience</li>
+                    <li>Sandboarding Access</li>
+                    <li>Standard BBQ Dinner</li>
+                </ul>
+                <a href="#" class="cta-btn explore" style="padding: 10px 30px; font-size: 1.2rem;">Select Plan</a>
+            </div>
+            <div class="info-card" style="text-align: center; border-color: #FF3D2D; background: #1a0505;">
+                <h3 class="explore" style="color: #FF3D2D;">Premium Safari</h3>
+                <div style="font-size: 3rem; margin: 20px 0;" class="explore">$99<span
+                        style="font-size: 1rem;">/person</span></div>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+                <ul class="font" style="list-style: none; padding: 0; line-height: 2.5; color: #ccc;">
+                    <li>Dune Bashing (45 mins)</li>
+                    <li>Bedouin Cultural Show</li>
+                    <li>Alcoholic Beverage Option</li>
+                    <li>Gourmet Buffet Dinner</li>
+                    <li>Stargazing Session</li>
+                </ul>
+                <a href="#" class="cta-btn explore" style="padding: 12px 35px; font-size: 1.3rem;">Best Value</a>
+            </div>
+            <div class="info-card" style="text-align: center;">
+                <h3 class="explore" style="color: #FFD700;">VIP Royalty</h3>
+                <div style="font-size: 3rem; margin: 20px 0;" class="explore">$199<span
+                        style="font-size: 1rem;">/person</span></div>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+                <ul class="font" style="list-style: none; padding: 0; line-height: 2.5; color: #999;">
+                    <li>Private 4x4 Vehicle</li>
+                    <li>VIP Table Service</li>
+                    <li>Personal Photographer</li>
+                    <li>Overnight Tent Option</li>
+                    <li>Falconry Experience</li>
+                </ul>
+                <a href="#" class="cta-btn explore" style="padding: 10px 30px; font-size: 1.2rem;">Go Royal</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-cta">
+        <h2 class="explore" style="font-size: 3rem; color: #fff;">READY FOR THE ADVENTURE?</h2>
+        <p class="font" style="font-size: 1.2rem; color: #FFD700;">Book your desert safari today and create memories
+            that last a lifetime.</p>
+        <a href="#" class="cta-btn explore">BOOK YOUR SAFARI NOW</a>
+    </section>
+
+    <div style="text-align: center; padding: 50px; background: #000;">
+        <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
+    </div>
+</body>
+
+</html>

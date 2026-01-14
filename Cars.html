@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="travello.css">
+    <title>Car Rental - Travello</title>
+    <style>
+        .service-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('Land-img/destinations/desert.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .booking-container {
+            max-width: 1200px;
+            margin: -10vh auto 10vh;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 162, 226, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            color: #FF3D2D;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 15px;
+            background: #222;
+            border: 2px solid #00A2E2;
+            color: white;
+            border-radius: 12px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #FF3D2D;
+            box-shadow: 0 0 10px rgba(255, 61, 45, 0.3);
+        }
+
+        .book-now {
+            grid-column: 1 / -1;
+            padding: 20px;
+            background: linear-gradient(45deg, #FF3D2D, #00A2E2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .book-now:hover {
+            letter-spacing: 4px;
+            filter: brightness(1.2);
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 50px 5vw;
+        }
+
+        .car-card {
+            background: #1a1a1a;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .car-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 162, 226, 0.3);
+        }
+
+        .car-info {
+            padding: 30px;
+        }
+
+        .car-tag {
+            background: #FF3D2D;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .car-info h4 {
+            color: #00A2E2;
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+        }
+
+        .spec-list {
+            display: flex;
+            gap: 20px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .spec-item i {
+            color: #FF3D2D;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body style="background: #000; color: white; margin: 0; font-family: 'Exo 2', sans-serif;">
+    <div class="service-hero">
+        <h1 class="explore" style="font-size: 5rem; color: #FF3D2D; text-shadow: 4px 4px black;">CARS</h1>
+        <p class="font" style="font-size: 1.5rem; color: #00A2E2;">Adventure awaits a few gears away.</p>
+    </div>
+
+    <div class="booking-container">
+        <form class="booking-form">
+            <div class="form-group">
+                <label>Pick-up Location</label>
+                <input type="text" placeholder="City or Airport">
+            </div>
+            <div class="form-group">
+                <label>Pick-up Date</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>Return Date</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>Car Type</label>
+                <select>
+                    <option>All Types</option>
+                    <option>Luxury Sedan</option>
+                    <option>Sport Utility (SUV)</option>
+                    <option>Convertible</option>
+                </select>
+            </div>
+            <button class="book-now font">FIND YOUR RIDE <i class="fa-solid fa-car"></i></button>
+        </form>
+    </div>
+
+    <section class="featured-cars">
+        <div class="upper-headings">
+            <p class="first-line font">OUR TOP FLEET</p>
+            <h2 class="second-line explore">DRIVE IN STYLE</h2>
+        </div>
+        <div class="car-grid">
+            <div class="car-card">
+                <div style="height: 250px; background: url('land-img/destinations/sydney.jpg') center/cover;"></div>
+                <div class="car-info">
+                    <span class="car-tag">LUXURY</span>
+                    <h4 class="explore">Cruiser X1</h4>
+                    <div class="spec-list font">
+                        <span class="spec-item"><i class="fas fa-user"></i> 5 Seats</span>
+                        <span class="spec-item"><i class="fas fa-gas-pump"></i> Hybrid</span>
+                    </div>
+                    <p class="font" style="color: #FF3D2D; font-size: 1.5rem; font-weight: bold;">$120/day</p>
+                </div>
+            </div>
+            <div class="car-card">
+                <div style="height: 250px; background: url('land-img/destinations/desert.jpg') center/cover;"></div>
+                <div class="car-info">
+                    <span class="car-tag">ADVENTURE</span>
+                    <h4 class="explore">Desert Rover</h4>
+                    <div class="spec-list font">
+                        <span class="spec-item"><i class="fas fa-cog"></i> AWD</span>
+                        <span class="spec-item"><i class="fas fa-shuttle-van"></i> 7 Seats</span>
+                    </div>
+                    <p class="font" style="color: #FF3D2D; font-size: 1.5rem; font-weight: bold;">$150/day</p>
+                </div>
+            </div>
+            <div class="car-card">
+                <div style="height: 250px; background: url('land-img/destinations/london.webp') center/cover;"></div>
+                <div class="car-info">
+                    <span class="car-tag">EXECUTIVE</span>
+                    <h4 class="explore">City Glide</h4>
+                    <div class="spec-list font">
+                        <span class="spec-item"><i class="fas fa-tachometer-alt"></i> Electric</span>
+                        <span class="spec-item"><i class="fas fa-shield-alt"></i> 5 Seats</span>
+                    </div>
+                    <p class="font" style="color: #FF3D2D; font-size: 1.5rem; font-weight: bold;">$95/day</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align: center; padding: 50px;">
+        <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
+    </div>
+</body>
+
+</html>

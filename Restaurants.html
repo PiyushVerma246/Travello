@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="travello.css">
+    <title>Dining - Travello</title>
+    <style>
+        .service-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('Land-img/trip to ancient roam.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .booking-container {
+            max-width: 1000px;
+            margin: -10vh auto 10vh;
+            background: rgba(30, 20, 20, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 61, 45, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group label {
+            color: #FF3D2D;
+            font-size: 1rem;
+            font-weight: 600;
+            text-shadow: 1px 1px black;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 18px;
+            background: #1a0f0f;
+            border: 2px solid #3d2424;
+            color: #ffc2c2;
+            border-radius: 15px;
+            outline: none;
+            transition: 0.4s;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            border-color: #FF3D2D;
+            background: #2a1515;
+            box-shadow: 0 0 20px rgba(255, 61, 45, 0.2);
+        }
+
+        .book-now {
+            grid-column: 1 / -1;
+            padding: 22px;
+            background: #FF3D2D;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            box-shadow: 0 10px 30px rgba(255, 61, 45, 0.3);
+        }
+
+        .book-now:hover {
+            background: #00A2E2;
+            box-shadow: 0 10px 30px rgba(0, 162, 226, 0.3);
+            transform: scale(1.02);
+            letter-spacing: 5px;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 50px 7vw;
+            background: #0a0505;
+        }
+
+        .res-card {
+            background: #150a0a;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 61, 45, 0.05);
+            transition: 0.4s ease;
+        }
+
+        .res-card:hover {
+            transform: translateY(-15px);
+            border-color: #FF3D2D;
+        }
+
+        .res-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .res-info h4 {
+            color: #FF3D2D;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .cuisine {
+            color: #00A2E2;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body style="background: #000; color: white; margin: 0; font-family: 'Exo 2', sans-serif;">
+    <div class="service-hero">
+        <h1 class="explore" style="font-size: 5rem; color: #FF3D2D; text-shadow: 5px 5px black;">RESTAURANTS</h1>
+        <p class="font" style="font-size: 1.5rem; color: #00A2E2;">Hundreds of flavors under one roof.</p>
+    </div>
+
+    <div class="booking-container">
+        <form class="booking-form">
+            <div class="form-group">
+                <label>Restaurant or Cuisine</label>
+                <input type="text" placeholder="e.g. Italian, Sushi, Rooftop">
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                <select>
+                    <option>7:00 PM</option>
+                    <option>8:00 PM</option>
+                    <option>9:00 PM</option>
+                    <option>10:00 PM</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>GUESTS</label>
+                <select>
+                    <option>2 People</option>
+                    <option>4 People</option>
+                    <option>6+ People</option>
+                </select>
+            </div>
+            <button class="book-now font">RESERVE TABLE <i class="fa-solid fa-utensils"></i></button>
+        </form>
+    </div>
+
+    <section class="featured-dining">
+        <div class="upper-headings">
+            <p class="first-line font">SIGNATURE DINING</p>
+            <h2 class="second-line explore">TASTE THE WORLD</h2>
+        </div>
+        <div class="restaurant-grid">
+            <div class="res-card">
+                <div style="height: 280px; background: url('land-img/trip to ancient roam.jpg') center/cover;"></div>
+                <div class="res-info">
+                    <h4 class="explore">Vatican Vaults</h4>
+                    <span class="cuisine font">Authentic Italian</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="font">Fine dining in the heart of Rome with a 500-year-old wine cellar.</p>
+                </div>
+            </div>
+            <div class="res-card">
+                <div style="height: 280px; background: url('land-img/destinations/london.webp') center/cover;"></div>
+                <div class="res-info">
+                    <h4 class="explore">The Thames Grille</h4>
+                    <span class="cuisine font">Modern British</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <p class="font">Experience Riverside dining with a panoramic view of the London Eye.</p>
+                </div>
+            </div>
+            <div class="res-card">
+                <div style="height: 280px; background: url('land-img/destinations/maldives.jpg') center/cover;"></div>
+                <div class="res-info">
+                    <h4 class="explore">Coral Kitchen</h4>
+                    <span class="cuisine font">Seafood & Tropical</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="font">Under-ocean dining experience surrounded by exotic marine life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align: center; padding: 70px; background: #000;">
+        <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
+    </div>
+</body>
+
+</html>

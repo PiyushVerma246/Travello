@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="travello.css">
+    <title>Hotels - Travello</title>
+    <style>
+        .service-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('Land-img/tasteful mauritius.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .booking-container {
+            max-width: 1200px;
+            margin: -10vh auto 10vh;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 162, 226, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            color: #00A2E2;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 15px;
+            background: #000;
+            border: 2px solid #FF3D2D;
+            color: white;
+            border-radius: 10px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .book-now {
+            grid-column: 1 / -1;
+            padding: 20px;
+            background: #00A2E2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .book-now:hover {
+            background: #FF3D2D;
+            transform: translateY(-5px);
+        }
+
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 5vw;
+        }
+
+        .hotel-card {
+            background: #111;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
+        }
+
+        .hotel-card:hover {
+            border-color: #00A2E2;
+            box-shadow: 0 10px 30px rgba(0, 162, 226, 0.2);
+        }
+
+        .hotel-info {
+            padding: 25px;
+        }
+
+        .hotel-info h4 {
+            color: #FF3D2D;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body style="background: #000; color: white; margin: 0; font-family: 'Exo 2', sans-serif;">
+    <div class="service-hero">
+        <h1 class="explore" style="font-size: 5rem; color: #00A2E2; text-shadow: 3px 3px black;">HOTELS</h1>
+        <p class="font" style="font-size: 1.5rem; color: #FF3D2D;">Luxury is not a place, it's an experience.</p>
+    </div>
+
+    <div class="booking-container">
+        <form class="booking-form">
+            <div class="form-group">
+                <label>Destination</label>
+                <input type="text" placeholder="Where are you going?">
+            </div>
+            <div class="form-group">
+                <label>Check-in</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>Check-out</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>Guests</label>
+                <select>
+                    <option>1 Room, 2 Adults</option>
+                    <option>1 Room, 1 Adult</option>
+                    <option>2 Rooms, 4 Adults</option>
+                </select>
+            </div>
+            <button class="book-now font">FIND BEST STAYS <i class="fa-solid fa-hotel"></i></button>
+        </form>
+    </div>
+
+    <section class="featured-hotels">
+        <div class="upper-headings">
+            <p class="first-line font">PREMIUM STAYS</p>
+            <h2 class="second-line explore">WAKE UP IN PARADISE</h2>
+        </div>
+        <div class="hotel-grid">
+            <div class="hotel-card">
+                <div style="height: 250px; background: url('land-img/tasteful mauritius.jpg') center/cover;"></div>
+                <div class="hotel-info">
+                    <h4 class="explore">Azure Resort</h4>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="font">Oceanfront villa with private pool and world-class spa.</p>
+                    <p class="font" style="color: #00A2E2; font-weight: bold; font-size: 1.2rem;">From $299/night</p>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div style="height: 250px; background: url('Land-img/trip to ancient roam.jpg') center/cover;"></div>
+                <div class="hotel-info">
+                    <h4 class="explore">The Imperial Stay</h4>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="font">Historic architecture meets modern luxury in the heart of Rome.</p>
+                    <p class="font" style="color: #00A2E2; font-weight: bold; font-size: 1.2rem;">From $180/night</p>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div style="height: 250px; background: url('land-img/destinations/london.webp') center/cover;"></div>
+                <div class="hotel-info">
+                    <h4 class="explore">Skyline Suites</h4>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <p class="font">Experience the city lights from the tallest luxury hotel.</p>
+                    <p class="font" style="color: #00A2E2; font-weight: bold; font-size: 1.2rem;">From $250/night</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align: center; padding: 50px;">
+        <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
+    </div>
+</body>
+
+</html>
