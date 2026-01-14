@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="travello.css">
+    <title>About Us - Travello</title>
+    <style>
+        @font-face {
+            font-family: exploreFont;
+            src: url('Veneer.ttf');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Acme', sans-serif;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('land-img/destinations/maldives.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-hero h1 {
+            font-family: exploreFont;
+            font-size: 5rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+        }
+
+        /* Section Styling */
+        .about-section {
+            padding: 80px 10vw;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: exploreFont;
+            font-size: 3rem;
+            color: #FF3D2D;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #00A2E2;
+            letter-spacing: 2px;
+        }
+
+        /* Story Section */
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-text h3 {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+
+        .story-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(255, 61, 45, 0.3);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .mv-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 162, 226, 0.3);
+            border-color: #00A2E2;
+        }
+
+        .mv-card i {
+            font-size: 3rem;
+            color: #FF3D2D;
+            margin-bottom: 20px;
+        }
+
+        .mv-card h3 {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .mv-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Core Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 61, 45, 0.1);
+            border-color: #FF3D2D;
+        }
+
+        .value-card i {
+            font-size: 3rem;
+            color: #00A2E2;
+            margin-bottom: 20px;
+        }
+
+        .value-card h4 {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #FF3D2D 0%, #00A2E2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-image i {
+            font-size: 5rem;
+            color: white;
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-info h4 {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            font-size: 1rem;
+            color: #00A2E2;
+            margin-bottom: 15px;
+        }
+
+        .team-info .bio {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .achievement-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            background: rgba(0, 162, 226, 0.1);
+            border-color: #00A2E2;
+        }
+
+        .achievement-card i {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .achievement-card h3 {
+            font-size: 2.5rem;
+            color: #FF3D2D;
+            margin-bottom: 10px;
+        }
+
+        .achievement-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 61, 45, 0.2) 0%, rgba(0, 162, 226, 0.2) 100%);
+            padding: 80px 10vw;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: exploreFont;
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #FF3D2D 0%, #FF6B45 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 61, 45, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 61, 45, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .story-content,
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 3rem;
+            }
+
+            .values-grid,
+            .team-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo"><img src="shop-img/Horizontal_logo.png" alt=""></div>
+        <div class="address">
+            <div class="add">
+                <img class="nav-icon" id="phone" src="Land-img/map icon.png" alt="">
+                <div class="icon-name">
+                    <span class="brief font">Uttar Pradesh, India</span><br>
+                    <span class="name font">Address</span>
+                </div>
+            </div>
+            <div class="add">
+                <img class="nav-icon" id="phone" src="Land-img/phone icon.png" alt="">
+                <div class="icon-name" id="phone-id">
+                    <span class="brief font">+91-9452****07</span><br>
+                    <span class="name font">Contact-us</span>
+                </div>
+            </div>
+            <div class="add">
+                <img class="nav-icon" id="mail" src="Land-img/email icon.jpg" alt="">
+                <div class="icon-name">
+                    <span class="brief font">Travello@gmail.com</span><br>
+                    <span class="name font">Mail-us</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="line"></div>
+
+    <div class="options">
+        <div class="option1 font">
+            <li><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+            <li><a href="About.html" style="color: inherit; text-decoration: none;">About</a></li>
+            <li><a href="Contact.html" style="color: inherit; text-decoration: none;">Contact</a></li>
+            <li>Blog</li>
+            <li><a href="Login.html" style="color: inherit; text-decoration: none;">Login</a></li>
+            <li><a href="Shop.html" style="color: inherit; text-decoration: none;">Shop-Outfits</a></li>
+        </div>
+        <div class="option2 font">
+            <i class="fa-solid fa-bag-shopping" id="shopping"></i>
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="" placeholder="Search">
+                <button class="searchButton" href="#">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="about-hero">
+        <h1>ABOUT TRAVELLO</h1>
+        <p>Crafting Unforgettable Journeys Since 2015</p>
+    </div>
+
+    <!-- Our Story Section -->
+    <div class="about-section">
+        <div class="section-title">
+            <p>OUR JOURNEY</p>
+            <h2>The Travello Story</h2>
+        </div>
+        <div class="story-content">
+            <div class="story-text">
+                <h3>Where It All Began</h3>
+                <p>Founded in 2015, Travello emerged from a simple yet powerful vision: to make world-class travel
+                    experiences accessible to everyone. What started as a small team of passionate travelers has grown
+                    into a leading travel platform serving thousands of adventurers worldwide.</p>
+                <p>Our journey has been fueled by the belief that travel is not just about destinations—it's about the
+                    stories you create, the cultures you embrace, and the memories that last a lifetime.</p>
+                <p>Today, we're proud to offer curated experiences across 100+ destinations, backed by a team of 60+
+                    travel experts who are dedicated to making your dream vacation a reality.</p>
+            </div>
+            <div class="story-image">
+                <img src="land-img/destinations/sydney.jpg" alt="Travello Journey">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="about-section" style="background: rgba(255, 255, 255, 0.02);">
+        <div class="section-title">
+            <p>OUR PURPOSE</p>
+            <h2>Mission & Vision</h2>
+        </div>
+        <div class="mission-vision">
+            <div class="mv-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To inspire and enable people to explore the world by providing exceptional travel experiences,
+                    personalized service, and unbeatable value. We strive to make every journey seamless, memorable, and
+                    transformative.</p>
+            </div>
+            <div class="mv-card">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To become the world's most trusted travel companion, connecting cultures and creating global citizens
+                    through authentic, sustainable, and enriching travel experiences that leave a positive impact on
+                    both travelers and destinations.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Values -->
+    <div class="about-section">
+        <div class="section-title">
+            <p>WHAT DRIVES US</p>
+            <h2>Our Core Values</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fas fa-heart"></i>
+                <h4>Passion</h4>
+                <p>We love travel and it shows in everything we do</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Trust</h4>
+                <p>Your safety and satisfaction are our top priorities</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-star"></i>
+                <h4>Excellence</h4>
+                <p>We deliver premium experiences at every touchpoint</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-leaf"></i>
+                <h4>Sustainability</h4>
+                <p>Committed to responsible and eco-friendly travel</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-users"></i>
+                <h4>Community</h4>
+                <p>Building connections between travelers and cultures</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Innovation</h4>
+                <p>Constantly evolving to serve you better</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="about-section" style="background: rgba(255, 255, 255, 0.02);">
+        <div class="section-title">
+            <p>MEET THE TEAM</p>
+            <h2>The People Behind Travello</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="team-info">
+                    <h4>Piyush Verma</h4>
+                    <p>Founder & CEO</p>
+                    <p class="bio">Passionate traveler with 15+ years of industry experience, dedicated to
+                        revolutionizing travel.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="team-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>Head of Operations</p>
+                    <p class="bio">Ensuring seamless experiences with meticulous attention to detail and customer care.
+                    </p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="team-info">
+                    <h4>Raj Patel</h4>
+                    <p>Travel Experience Director</p>
+                    <p class="bio">Curating unique adventures and crafting unforgettable journeys worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="about-section">
+        <div class="section-title">
+            <p>OUR MILESTONES</p>
+            <h2>Achievements & Recognition</h2>
+        </div>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <i class="fas fa-globe"></i>
+                <h3>100+</h3>
+                <p>Destinations Worldwide</p>
+            </div>
+            <div class="achievement-card">
+                <i class="fas fa-users"></i>
+                <h3>50K+</h3>
+                <p>Happy Travelers</p>
+            </div>
+            <div class="achievement-card">
+                <i class="fas fa-award"></i>
+                <h3>25+</h3>
+                <p>Industry Awards</p>
+            </div>
+            <div class="achievement-card">
+                <i class="fas fa-star"></i>
+                <h3>98%</h3>
+                <p>Satisfaction Rate</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>Ready to Start Your Journey?</h2>
+        <p>Join thousands of travelers who trust Travello for their adventures</p>
+        <a href="index.html" class="cta-btn">Explore Destinations</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="last">
+            <div class="mount-logo">
+                <img src="Land-img/travello logo.png" alt="">
+                <button class="country-btn font red pointer">Country ▶</button>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Learn More</span>
+                <li>About us</li>
+                <li>Contact us</li>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Destinations</span>
+                <li>Asia</li>
+                <li>Europe</li>
+                <li>America</li>
+                <li>Africa</li>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Services</span>
+                <li>Flights</li>
+                <li>Hotels</li>
+                <li>Car Rental</li>
+                <li>Restaurants</li>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

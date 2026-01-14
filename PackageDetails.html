@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="travello.css">
+    <title>Package Details - Travello</title>
+    <style>
+        @font-face {
+            font-family: exploreFont;
+            src: url('Veneer.ttf');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Acme', sans-serif;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .package-hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('land-img/destinations/maldives.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 60px 10vw;
+            position: relative;
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 30px;
+            right: 10vw;
+            background: linear-gradient(135deg, #FF3D2D 0%, #FF6B45 100%);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .package-hero h1 {
+            font-family: exploreFont;
+            font-size: 5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .package-meta {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .meta-item i {
+            color: #FFD700;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars {
+            color: #FFD700;
+        }
+
+        /* Quick Info Bar */
+        .quick-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 10vw;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .info-box {
+            text-align: center;
+        }
+
+        .info-box i {
+            font-size: 2.5rem;
+            color: #00A2E2;
+            margin-bottom: 10px;
+        }
+
+        .info-box h3 {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Main Content */
+        .package-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 80px 10vw;
+        }
+
+        /* Left Column */
+        .content-left h2 {
+            font-family: exploreFont;
+            font-size: 2.5rem;
+            color: #FF3D2D;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        /* Image Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Itinerary */
+        .itinerary-day {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .day-header:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .day-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .day-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF3D2D 0%, #FF6B45 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .day-title h4 {
+            font-size: 1.3rem;
+            color: #FFD700;
+        }
+
+        .day-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+        }
+
+        .day-content.active {
+            max-height: 500px;
+            padding: 0 25px 20px;
+        }
+
+        .day-content p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Highlights */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .highlight-item i {
+            font-size: 1.5rem;
+            color: #00A2E2;
+            margin-top: 5px;
+        }
+
+        /* Inclusions */
+        .inclusion-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .inclusion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(0, 162, 226, 0.1);
+            border-radius: 10px;
+        }
+
+        .inclusion-item i {
+            color: #00A2E2;
+            font-size: 1.2rem;
+        }
+
+        .exclusion-item {
+            background: rgba(255, 61, 45, 0.1);
+        }
+
+        .exclusion-item i {
+            color: #FF3D2D;
+        }
+
+        /* Right Column - Booking Widget */
+        .booking-widget {
+            position: sticky;
+            top: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .price-tag {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .price-tag .from {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .price-tag .amount {
+            font-size: 3rem;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .price-tag .per {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .booking-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .booking-form label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .booking-form input,
+        .booking-form select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-family: 'Acme', sans-serif;
+        }
+
+        .booking-form input:focus,
+        .booking-form select:focus {
+            outline: none;
+            border-color: #00A2E2;
+        }
+
+        .book-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #FF3D2D 0%, #FF6B45 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2rem;
+            font-family: 'Acme', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 61, 45, 0.6);
+        }
+
+        .package-tiers {
+            margin-top: 30px;
+        }
+
+        .tier {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tier:hover,
+        .tier.active {
+            border-color: #00A2E2;
+            background: rgba(0, 162, 226, 0.1);
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .tier-name {
+            font-size: 1.1rem;
+            color: #FFD700;
+        }
+
+        .tier-price {
+            font-size: 1.3rem;
+            color: #00A2E2;
+            font-weight: bold;
+        }
+
+        .tier-features {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Reviews */
+        .reviews-section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 80px 10vw;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: exploreFont;
+            font-size: 3rem;
+            color: #FF3D2D;
+            margin-bottom: 15px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-name {
+            font-size: 1.1rem;
+            color: #FFD700;
+        }
+
+        .review-stars {
+            color: #FFD700;
+        }
+
+        .review-text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .package-content {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-widget {
+                position: relative;
+                top: 0;
+            }
+
+            .quick-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .package-hero h1 {
+                font-size: 3rem;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr;
+            }
+
+            .highlights-grid,
+            .inclusion-list {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo"><img src="shop-img/Horizontal_logo.png" alt=""></div>
+        <div class="address">
+            <div class="add">
+                <img class="nav-icon" id="phone" src="Land-img/map icon.png" alt="">
+                <div class="icon-name">
+                    <span class="brief font">Uttar Pradesh, India</span><br>
+                    <span class="name font">Address</span>
+                </div>
+            </div>
+            <div class="add">
+                <img class="nav-icon" id="phone" src="Land-img/phone icon.png" alt="">
+                <div class="icon-name" id="phone-id">
+                    <span class="brief font">+91-9452****07</span><br>
+                    <span class="name font">Contact-us</span>
+                </div>
+            </div>
+            <div class="add">
+                <img class="nav-icon" id="mail" src="Land-img/email icon.jpg" alt="">
+                <div class="icon-name">
+                    <span class="brief font">Travello@gmail.com</span><br>
+                    <span class="name font">Mail-us</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="line"></div>
+
+    <div class="options">
+        <div class="option1 font">
+            <li><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+            <li><a href="About.html" style="color: inherit; text-decoration: none;">About</a></li>
+            <li><a href="Contact.html" style="color: inherit; text-decoration: none;">Contact</a></li>
+            <li>Blog</li>
+            <li><a href="Login.html" style="color: inherit; text-decoration: none;">Login</a></li>
+            <li><a href="Shop.html" style="color: inherit; text-decoration: none;">Shop-Outfits</a></li>
+        </div>
+        <div class="option2 font">
+            <i class="fa-solid fa-bag-shopping" id="shopping"></i>
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="" placeholder="Search">
+                <button class="searchButton" href="#">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="package-hero">
+        <div class="package-badge">Special Offer</div>
+        <h1>Maldives Paradise</h1>
+        <div class="package-meta">
+            <div class="meta-item">
+                <i class="fas fa-calendar"></i>
+                <span>7 Days / 6 Nights</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>2-10 People</span>
+            </div>
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>4.8 (256 reviews)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Info Bar -->
+    <div class="quick-info">
+        <div class="info-box">
+            <i class="fas fa-plane-departure"></i>
+            <h3>Direct Flight</h3>
+            <p>Round trip included</p>
+        </div>
+        <div class="info-box">
+            <i class="fas fa-hotel"></i>
+            <h3>5-Star Resort</h3>
+            <p>Luxury accommodation</p>
+        </div>
+        <div class="info-box">
+            <i class="fas fa-utensils"></i>
+            <h3>All Meals</h3>
+            <p>Breakfast, Lunch & Dinner</p>
+        </div>
+        <div class="info-box">
+            <i class="fas fa-swimming-pool"></i>
+            <h3>Activities</h3>
+            <p>Water sports & excursions</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="package-content">
+        <!-- Left Column -->
+        <div class="content-left">
+            <!-- Overview -->
+            <div class="section">
+                <h2>Package Overview</h2>
+                <p class="description">
+                    Escape to paradise with our exclusive Maldives package! Experience the ultimate tropical getaway
+                    with crystal-clear waters, pristine white beaches, and world-class luxury resorts. This 7-day
+                    journey includes everything you need for an unforgettable vacation - from direct flights and 5-star
+                    accommodation to exciting water activities and gourmet dining.
+                </p>
+                <p class="description">
+                    Immerse yourself in the breathtaking beauty of the Maldives, where every moment is a
+                    postcard-perfect memory. Whether you're seeking romance, adventure, or pure relaxation, this package
+                    offers the perfect blend of all three.
+                </p>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="section">
+                <h2>Destination Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="land-img/destinations/maldives.jpg" alt="Maldives 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="land-img/destinations/sydney.jpg" alt="Maldives 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="beach-img/beach back.jpg" alt="Maldives 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="land-img/destinations/london.webp" alt="Maldives 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="land-img/destinations/Taj-Mahal-.jpg" alt="Maldives 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="land-img/destinations/mounts.jpg" alt="Maldives 6">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day-by-Day Itinerary -->
+            <div class="section">
+                <h2>Day-by-Day Itinerary</h2>
+
+                <div class="itinerary-day">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <div class="day-number">1</div>
+                            <h4>Arrival & Resort Check-in</h4>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="day-content">
+                        <p>Arrive at Malé International Airport where our representative will greet you. Transfer to
+                            your luxury resort via speedboat or seaplane. Check-in to your overwater villa and enjoy a
+                            welcome drink. Spend the rest of the day at leisure, exploring the resort facilities.
+                            Evening welcome dinner at the resort's beachfront restaurant.</p>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <div class="day-number">2</div>
+                            <h4>Snorkeling & Island Exploration</h4>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="day-content">
+                        <p>After breakfast, embark on a guided snorkeling tour to explore vibrant coral reefs and marine
+                            life. Visit a local island to experience Maldivian culture and shop for souvenirs. Enjoy a
+                            traditional Maldivian lunch. Return to resort for relaxation. Optional sunset cruise
+                            available in the evening.</p>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <div class="day-number">3</div>
+                            <h4>Water Sports & Spa Day</h4>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="day-content">
+                        <p>Morning water sports activities including jet skiing, kayaking, and paddleboarding. Afternoon
+                            spa session with traditional Maldivian massage treatments. Evening at leisure to enjoy
+                            resort amenities. Romantic dinner under the stars can be arranged.</p>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <div class="day-number">4</div>
+                            <h4>Dolphin Watching & Sandbank Picnic</h4>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="day-content">
+                        <p>Early morning dolphin watching cruise. Witness playful dolphins in their natural habitat.
+                            Visit a pristine sandbank for a private picnic lunch. Afternoon free for swimming and
+                            sunbathing. Return to resort for dinner and evening entertainment.</p>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <div class="day-number">5</div>
+                            <h4>Scuba Diving Adventure</h4>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="day-content">
+                        <p>Full day scuba diving experience (for certified divers) or introductory dive session. Explore
+                            underwater caves, shipwrecks, and encounter manta rays and sea turtles. Lunch on a nearby
+                            island. Evening BBQ dinner on the beach with live music.</p>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <div class="day-number">6</div>
+                            <h4>Leisure Day & Sunset Fishing</h4>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="day-content">
+                        <p>Day at leisure to enjoy resort facilities - infinity pool, private beach, or in-villa
+                            relaxation. Optional activities available. Evening traditional Maldivian fishing trip. Your
+                            catch can be prepared for dinner by the resort chef. Farewell dinner with special cultural
+                            performance.</p>
+                    </div>
+                </div>
+
+                <div class="itinerary-day">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <div class="day-number">7</div>
+                            <h4>Departure</h4>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="day-content">
+                        <p>Enjoy a leisurely breakfast. Check-out from resort and transfer to Malé International Airport
+                            for your departure flight. Take home unforgettable memories of your Maldives paradise
+                            experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights -->
+            <div class="section">
+                <h2>Package Highlights</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Luxury Overwater Villa</h4>
+                            <p>Stay in a premium overwater bungalow with direct ocean access</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>All-Inclusive Dining</h4>
+                            <p>Gourmet meals at multiple resort restaurants</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Water Activities</h4>
+                            <p>Complimentary snorkeling, kayaking, and paddleboarding</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Spa Treatment</h4>
+                            <p>One complimentary spa session per person</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Excursions</h4>
+                            <p>Guided island tours and cultural experiences</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>24/7 Concierge</h4>
+                            <p>Dedicated support throughout your stay</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inclusions & Exclusions -->
+            <div class="section">
+                <h2>What's Included</h2>
+                <div class="inclusion-list">
+                    <div class="inclusion-item">
+                        <i class="fas fa-check"></i>
+                        <span>Round-trip flights</span>
+                    </div>
+                    <div class="inclusion-item">
+                        <i class="fas fa-check"></i>
+                        <span>Airport transfers</span>
+                    </div>
+                    <div class="inclusion-item">
+                        <i class="fas fa-check"></i>
+                        <span>6 nights accommodation</span>
+                    </div>
+                    <div class="inclusion-item">
+                        <i class="fas fa-check"></i>
+                        <span>All meals (breakfast, lunch, dinner)</span>
+                    </div>
+                    <div class="inclusion-item">
+                        <i class="fas fa-check"></i>
+                        <span>Guided tours & excursions</span>
+                    </div>
+                    <div class="inclusion-item">
+                        <i class="fas fa-check"></i>
+                        <span>Water sports equipment</span>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 40px;">What's Not Included</h2>
+                <div class="inclusion-list">
+                    <div class="inclusion-item exclusion-item">
+                        <i class="fas fa-times"></i>
+                        <span>Travel insurance</span>
+                    </div>
+                    <div class="inclusion-item exclusion-item">
+                        <i class="fas fa-times"></i>
+                        <span>Personal expenses</span>
+                    </div>
+                    <div class="inclusion-item exclusion-item">
+                        <i class="fas fa-times"></i>
+                        <span>Alcoholic beverages</span>
+                    </div>
+                    <div class="inclusion-item exclusion-item">
+                        <i class="fas fa-times"></i>
+                        <span>Scuba diving certification</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Booking Widget -->
+        <div class="content-right">
+            <div class="booking-widget">
+                <div class="price-tag">
+                    <div class="from">Starting from</div>
+                    <div class="amount">$1,499</div>
+                    <div class="per">per person</div>
+                </div>
+
+                <div class="package-tiers">
+                    <div class="tier active">
+                        <div class="tier-header">
+                            <span class="tier-name">Basic Package</span>
+                            <span class="tier-price">$1,499</span>
+                        </div>
+                        <div class="tier-features">Standard villa, meals included</div>
+                    </div>
+                    <div class="tier">
+                        <div class="tier-header">
+                            <span class="tier-name">Deluxe Package</span>
+                            <span class="tier-price">$2,299</span>
+                        </div>
+                        <div class="tier-features">Overwater villa, spa, premium dining</div>
+                    </div>
+                    <div class="tier">
+                        <div class="tier-header">
+                            <span class="tier-name">Premium Package</span>
+                            <span class="tier-price">$3,499</span>
+                        </div>
+                        <div class="tier-features">Luxury villa, all activities, butler service</div>
+                    </div>
+                </div>
+
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label>Check-in Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Travelers</label>
+                        <select required>
+                            <option value="">Select travelers</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="Enter your phone" required>
+                    </div>
+                    <button type="submit" class="book-btn">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="reviews-section">
+        <div class="section-title">
+            <h2>Customer Reviews</h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Sarah Johnson</span>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Absolutely amazing experience! The resort was stunning, the staff was incredibly
+                    friendly, and the activities were so much fun. This was truly a trip of a lifetime. Highly recommend
+                    Travello!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Michael Chen</span>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Perfect honeymoon destination! Everything was organized perfectly. The overwater
+                    villa was breathtaking and the sunset views were unforgettable. Thank you Travello for making our
+                    special trip so memorable!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Emma Williams</span>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Great value for money! The package included everything we needed. The snorkeling
+                    was incredible and we saw so many beautiful fish and coral. Would definitely book with Travello
+                    again!"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="last">
+            <div class="mount-logo">
+                <img src="Land-img/travello logo.png" alt="">
+                <button class="country-btn font red pointer">Country ▶</button>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Learn More</span>
+                <li>About us</li>
+                <li>Contact us</li>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Destinations</span>
+                <li>Asia</li>
+                <li>Europe</li>
+                <li>America</li>
+                <li>Africa</li>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Services</span>
+                <li>Flights</li>
+                <li>Hotels</li>
+                <li>Car Rental</li>
+                <li>Restaurants</li>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle itinerary day content
+        function toggleDay(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+
+            content.classList.toggle('active');
+            icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Package tier selection
+        document.querySelectorAll('.tier').forEach(tier => {
+            tier.addEventListener('click', function () {
+                document.querySelectorAll('.tier').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const price = this.querySelector('.tier-price').textContent;
+                document.querySelector('.amount').textContent = price;
+            });
+        });
+
+        // Booking form submission
+        document.querySelector('.booking-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your booking request! Our team will contact you shortly to confirm your reservation.\n\n(Connect to backend for actual booking processing)');
+        });
+    </script>
+</body>
+
+</html>

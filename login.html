@@ -4,81 +4,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="travello.css">
+    <title>Login - Travello</title>
+    <style>
+        @font-face {
+            font-family: exploreFont;
+            src: url('Veneer.ttf');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Acme', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('land-img/destinations/maldives.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 1;
+            width: 450px;
+            max-width: 90%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-section img {
+            height: 60px;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+        }
+
+        .logo-section h1 {
+            font-family: exploreFont;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #FF3D2D 0%, #FF6B45 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 10px;
+        }
+
+        .toggle-container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            font-family: 'Acme', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            z-index: 2;
+        }
+
+        .toggle-btn.active {
+            color: white;
+            background: linear-gradient(135deg, #FF3D2D 0%, #FF6B45 100%);
+            box-shadow: 0 4px 15px rgba(255, 61, 45, 0.4);
+        }
+
+        .form-container {
+            position: relative;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-family: 'Acme', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00A2E2;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 20px rgba(0, 162, 226, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: #00A2E2;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #FF3D2D 0%, #FF6B45 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-family: 'Acme', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 61, 45, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 61, 45, 0.6);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .divider span {
+            padding: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #00A2E2;
+            transform: translateY(-2px);
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-home a {
+            color: #00A2E2;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-home a:hover {
+            color: #FFD700;
+        }
+
+        .terms {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 15px;
+        }
+
+        .terms a {
+            color: #00A2E2;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+
+            .logo-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="full-page">
-        <img class="back" src="img/baloon.jpg" alt="">
-        <div class="box">
+    <div class="login-container">
+        <div class="logo-section">
+            <img src="shop-img/Horizontal_logo.png" alt="Travello Logo">
+            <h1>TRAVELLO</h1>
+        </div>
 
-            <!-- I-M-A-G-E   B-O-X -->
-            <div class="box1">
-                <div class="imageeee" style="position: absolute;">
-                <img class="first-box-img" src="img/baloon.jpg" alt="">
+        <div class="toggle-container">
+            <button class="toggle-btn active" onclick="showLogin()">Login</button>
+            <button class="toggle-btn" onclick="showSignup()">Sign Up</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div class="form-container">
+            <div class="form-section active" id="loginForm">
+                <form>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
                 </div>
-                <div class="textoo explore" style="position: relative;">
-                    <h1 class="first-line">Enjoy the world</h1>
-                    <h1 class="second-line">With Travello</h1>
-                    <p class="quote font">Travello provides you the best packages to travel the world with extraordinary facilities. With Travello you and your family always happy and feeling safe without any fear</p>
-                    <button class="learn font">Learn More</button>
+
+                <div class="social-login">
+                    <button class="social-btn">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- F-O-R-M   B-O-X -->
-            <div class="box2">
-                <!-- T-I-T-L-E -->
-                <div class="content">
-                    <div class="plane">
-                        <img class="left-plane" src="img/hel-fotor-bg-remover-20231102204526.png" alt="">
-                        <img class="right-plane" src="img/hel-fotor-bg-remover-20231102204526.png" alt="">
+            <!-- SIGNUP FORM -->
+            <div class="form-section" id="signupForm">
+                <form>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Enter your full name" required>
+                        </div>
                     </div>
-                    <p class="explore">Welcome</p>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Create a password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" required>
+                            <span>I agree to Terms & Conditions</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Sign Up</button>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
                 </div>
-                <!-- F-O-R-M -->
-                <div class="form">
-                    <div class="input-container ic1">
-                        <input id="firstname" class="input" type="text" placeholder=" " />
-                        <div class="cut"></div>
-                        <label for="firstname" class="placeholder font">User-Name</label>
-                    </div>
-                    <div class="input-container ic2">
-                        <input id="lastname" class="input" type="password" placeholder=" " />
-                        <div class="cut"></div>
-                        <label for="lastname" class="placeholder font">Password</label>
-                    </div>
-                    <div class="forgot font">
-                        <a href="" target="_blank">Forgot Password ?</a>
-                    </div>
-                    <div class="btn">
-                        <i class="fa fa-paper-plane-o fa-2x send" aria-hidden="true"></i>
-                        <i class="fa fa-paper-plane-o fa-2x send2" aria-hidden="true"></i>
-                        <p class="font">Log-in</p>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#"><i class="fab fa-facebook-f icon"></i> </a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-twitter icon"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-linkedin icon"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-google-plus-g icon"></i></a>
-                        </li>
-                    </ul>
+
+                <div class="social-login">
+                    <button class="social-btn">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                </div>
+
+                <div class="terms">
+                    By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                 </div>
             </div>
         </div>
-      
+
+        <div class="back-home">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
     </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginForm').classList.add('active');
+            document.getElementById('signupForm').classList.remove('active');
+            document.querySelectorAll('.toggle-btn')[0].classList.add('active');
+            document.querySelectorAll('.toggle-btn')[1].classList.remove('active');
+        }
+
+        function showSignup() {
+            document.getElementById('signupForm').classList.add('active');
+            document.getElementById('loginForm').classList.remove('active');
+            document.querySelectorAll('.toggle-btn')[1].classList.add('active');
+            document.querySelectorAll('.toggle-btn')[0].classList.remove('active');
+        }
+
+        // Form submission handlers (placeholder - connect to backend)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Form submitted! (Connect to backend for actual authentication)');
+            });
+        });
+    </script>
 </body>
 
 </html>

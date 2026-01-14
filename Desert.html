@@ -84,10 +84,102 @@
             color: black;
             transform: scale(1.05);
         }
+
+        /* Navigation Styles */
+        nav {
+            padding: 20px 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            filter: brightness(1.2);
+        }
+
+        .logo span {
+            font-size: 2rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-options {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-options a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .nav-options a:hover {
+            color: #FF3D2D;
+            text-shadow: 0 0 10px rgba(255, 61, 45, 0.5);
+        }
+
+        .nav-line {
+            height: 25px;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-cart {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-options {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body style="background: #000; color: white; margin: 0; font-family: 'Exo 2', sans-serif;">
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="shop-img/Horizontal_logo.png" alt="Travello Logo">
+            <span class="explore">TRAVELLO</span>
+        </a>
+        <ul class="nav-options font">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Plans</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <div class="nav-line"></div>
+            <li><a href="#" class="nav-cart explore"><i class="fas fa-shopping-cart"></i> CART</a></li>
+        </ul>
+        <div class="ham" style="display: none;">
+            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+        </div>
+    </nav>
+
     <div class="destination-hero">
         <h1 class="explore" style="font-size: 5rem; color: #FFD700; text-shadow: 4px 4px black;">DESERT SAFARI</h1>
         <p class="font" style="font-size: 1.8rem; color: #FF3D2D;">Adventure in the Heart of the Dunes</p>
