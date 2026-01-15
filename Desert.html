@@ -5,313 +5,306 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="travello.css">
-    <title>Desert Safari - Travello</title>
-    <style>
-        .destination-hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('land-img/destinations/desert.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .desert-content {
-            padding: 80px 10vw;
-            background: #0a0500;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .info-card {
-            background: #1a0f05;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 165, 0, 0.1);
-            transition: 0.3s;
-        }
-
-        .info-card:hover {
-            border-color: #FF3D2D;
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 61, 45, 0.1);
-        }
-
-        .info-card i {
-            font-size: 3rem;
-            color: #FF3D2D;
-            margin-bottom: 20px;
-        }
-
-        .info-card h4 {
-            font-size: 1.8rem;
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-
-        .booking-cta {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('land-img/destinations/desert.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            padding: 100px 5vw;
-            text-align: center;
-        }
-
-        .cta-btn {
-            background: #FF3D2D;
-            color: white;
-            padding: 20px 50px;
-            font-size: 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 30px;
-            box-shadow: 0 0 20px rgba(255, 61, 45, 0.4);
-            transition: 0.3s;
-        }
-
-        .cta-btn:hover {
-            background: #FFD700;
-            color: black;
-            transform: scale(1.05);
-        }
-
-        /* Navigation Styles */
-        nav {
-            padding: 20px 5vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 50px;
-            filter: brightness(1.2);
-        }
-
-        .logo span {
-            font-size: 2rem;
-            color: #FFD700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .nav-options {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-options a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.1rem;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .nav-options a:hover {
-            color: #FF3D2D;
-            text-shadow: 0 0 10px rgba(255, 61, 45, 0.5);
-        }
-
-        .nav-line {
-            height: 25px;
-            width: 1px;
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .nav-cart {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #FFD700;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .nav-options {
-                display: none;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Exo+2:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="desert.css">
+    <title>The Ultimate Desert Guide - Travello</title>
 </head>
 
-<body style="background: #000; color: white; margin: 0; font-family: 'Exo 2', sans-serif;">
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="shop-img/Horizontal_logo.png" alt="Travello Logo">
-            <span class="explore">TRAVELLO</span>
-        </a>
-        <ul class="nav-options font">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Plans</a></li>
-            <li><a href="Shop.html">Shop</a></li>
-            <div class="nav-line"></div>
-            <li><a href="#" class="nav-cart explore"><i class="fas fa-shopping-cart"></i> CART</a></li>
-        </ul>
-        <div class="ham" style="display: none;">
-            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-        </div>
+<body class="texture-sand">
+
+    <!-- NAV -->
+    <nav
+        style="padding: 30px 5%; display: flex; justify-content: space-between; position: absolute; width: 90%; z-index: 100;">
+        <a href="index.html" class="explore"
+            style="color: #E6C229; text-decoration: none; font-size: 2.5rem;">TRAVELLO</a>
+        <a href="index.html" class="font"
+            style="color: white; text-decoration: none; font-size: 1.1rem; border: 2px solid #E6C229; padding: 8px 25px; border-radius: 30px; font-weight: 700; background: rgba(0,0,0,0.3);">BACK
+            HOME</a>
     </nav>
 
-    <div class="destination-hero">
-        <h1 class="explore" style="font-size: 5rem; color: #FFD700; text-shadow: 4px 4px black;">DESERT SAFARI</h1>
-        <p class="font" style="font-size: 1.8rem; color: #FF3D2D;">Adventure in the Heart of the Dunes</p>
+    <!-- HERO -->
+    <header class="desert-hero">
+        <h1 class="hero-title explore">WHISPERS OF THE SANDS</h1>
+        <p class="hero-subtitle font">The Total Immersion Guide to the World's Arid Wonders</p>
+    </header>
+
+    <!-- DESTINATIONS -->
+    <section class="section-padding">
+        <div class="section-head">
+            <h2 class="explore">LEGENDARY DESERTS</h2>
+            <p class="font">Explore the vast, shifting wildernesses that have shaped civilizations and inspired
+                explorers for millennia.</p>
+        </div>
+
+        <div class="destinations-grid">
+            <div class="dest-card">
+                <div class="dest-img"
+                    style="background-image: url('https://plus.unsplash.com/premium_photo-1661962388409-eb7a041606fb?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="dest-info">
+                    <h3 class="explore">The Sahara</h3>
+                    <p class="font">Covering 3.6 million square miles, the Sahara is an ocean of sand where dunes can
+                        reach 600 feet.</p>
+                </div>
+            </div>
+            <div class="dest-card">
+                <div class="dest-img"
+                    style="background-image: url('https://plus.unsplash.com/premium_photo-1661962388409-eb7a041606fb?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="dest-info">
+                    <h3 class="explore">Arabian Desert</h3>
+                    <p class="font">The Rub' al Khali is the world's largest contiguous sand desert, a realm of golden
+                        peaks and deep silence.</p>
+                </div>
+            </div>
+            <div class="dest-card">
+                <div class="dest-img"
+                    style="background-image: url('https://plus.unsplash.com/premium_photo-1661962388409-eb7a041606fb?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="dest-info">
+                    <h3 class="explore">Atacama</h3>
+                    <p class="font">A high-altitude Mars on Earth. In some parts of this Chilean desert, rain has never
+                        been recorded.</p>
+                </div>
+            </div>
+            <div class="dest-card">
+                <div class="dest-img"
+                    style="background-image: url('https://plus.unsplash.com/premium_photo-1661962388409-eb7a041606fb?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="dest-info">
+                    <h3 class="explore">Thar Desert</h3>
+                    <p class="font">The "Great Indian Desert" is one of the most densely populated deserts, rich in
+                        color and Rajasthani folklore.</p>
+                </div>
+            </div>
+            <div class="dest-card">
+                <div class="dest-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="dest-info">
+                    <h3 class="explore">Gobi Desert</h3>
+                    <p class="font">Stretching across China and Mongolia, the Gobi is a cold desert known for its
+                        historic Silk Road fossils.</p>
+                </div>
+            </div>
+            <div class="dest-card">
+                <div class="dest-img"
+                    style="background-image: url('https://plus.unsplash.com/premium_photo-1661962388409-eb7a041606fb?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="dest-info">
+                    <h3 class="explore">Mojave</h3>
+                    <p class="font">The hottest desert in North America, home to Joshua Trees and the surreal landscapes
+                        of Death Valley.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEPARATOR 1 -->
+    <div class="sep-banner"
+        style="background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2068&auto=format&fit=crop');">
+        <h2 class="explore">LIFE IN THE ARID</h2>
     </div>
 
-    <section class="desert-content">
-        <div class="upper-headings" style="padding-top: 0;">
-            <p class="first-line font">ENDLESS GOLDEN SANDS</p>
-            <h2 class="second-line explore">DISCOVER DESERT MAGIC</h2>
+    <!-- FLORA & FAUNA -->
+    <section class="section-padding">
+        <div class="section-head">
+            <h2 class="explore">THE DESERT DWELLERS</h2>
+            <p class="font">Far from being barren, the desert is a theater of specialized life that has mastered the art
+                of survival.</p>
         </div>
-
-        <div class="info-grid">
-            <div class="info-card">
-                <i class="fas fa-camel"></i>
-                <h4 class="explore">Camel Trekking</h4>
-                <p class="font">Experience the traditional way of desert travel as you traverse the vast dunes at
-                    sunset.</p>
+        <div class="life-grid">
+            <div class="life-card">
+                <div class="life-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="life-overlay">
+                    <h4 class="explore">The Camel</h4>
+                    <p class="font">The "Ship of the Desert" can survive weeks without water, storing fat in its hump
+                        for energy.</p>
+                </div>
             </div>
-            <div class="info-card">
-                <i class="fas fa-campground"></i>
-                <h4 class="explore">Luxury Camps</h4>
-                <p class="font">Stay in premium Bedouin-style tents with five-star amenities under the starlit desert
-                    sky.</p>
+            <div class="life-card">
+                <div class="life-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="life-overlay">
+                    <h4 class="explore">Fennec Fox</h4>
+                    <p class="font">The world's smallest fox species with massive ears used to dissipate heat in the
+                        Sahara.</p>
+                </div>
             </div>
-            <div class="info-card">
-                <i class="fas fa-dizzy"></i>
-                <h4 class="explore">Dune Bashing</h4>
-                <p class="font">An adrenaline-pumping ride across the dunes in a 4x4 vehicle with professional drivers.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="wildlife-section"
-        style="padding: 100px 10vw; background: #1a0f05; display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;">
-            <p class="first-line font" style="color: #FFD700; margin-bottom: 10px;">DESERT ECOSYSTEM</p>
-            <h2 class="explore" style="font-size: 3rem; color: white; margin-bottom: 20px;">WILDLIFE ENCOUNTER</h2>
-            <p class="font" style="line-height: 1.8; color: #ccc;">The desert is far from barren. Meet the resilient
-                inhabitants of the dunes, from the majestic Arabian Oryx to the swift Saker Falcon. Our
-                conservation-focused safaris allow you to observe these creatures in their natural habitat without
-                disturbing their peace.</p>
-            <ul class="font" style="color: #FF3D2D; list-style: none; padding: 0; margin-top: 20px;">
-                <li><i class="fas fa-check-circle"></i> Guided Falconry Displays</li>
-                <li><i class="fas fa-check-circle"></i> Gazelle Spotting Tours</li>
-                <li><i class="fas fa-check-circle"></i> Nature Photography Workshops</li>
-            </ul>
-        </div>
-        <div style="flex: 1; min-width: 300px; position: relative;">
-            <img src="land-img/destinations/desert.jpg" alt="Desert Wildlife"
-                style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); filter: contrast(1.2) brightness(0.8);">
-            <div style="position: absolute; bottom: -20px; right: -20px; background: #FF3D2D; padding: 20px; border-radius: 10px; color: white;"
-                class="explore">
-                <span style="font-size: 2rem;">150+</span><br>Species to Discover
+            <div class="life-card">
+                <div class="life-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+                <div class="life-overlay">
+                    <h4 class="explore">Saguaro Cactus</h4>
+                    <p class="font">Standing up to 40 feet tall, these icons can live for 200 years in the Sonoran
+                        Desert.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="stargazing"
-        style="height: 60vh; background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 10vw;">
-        <!-- CSS Stars -->
-        <div
-            style="position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; box-shadow: 10vw 20vh white, 30vw 10vh white, 50vw 40vh white, 70vw 20vh white, 90vw 50vh white, 20vw 80vh white, 40vw 70vh white, 60vw 90vh white, 80vw 60vh white; opacity: 0.5;">
+    <!-- SEPARATOR 2 -->
+    <div class="sep-banner"
+        style="background-image: url('https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=2070&auto=format&fit=crop');">
+        <h2 class="explore">DEEP IN THE DUNES</h2>
+    </div>
+
+    <!-- ACTIVITY -->
+    <section class="section-padding activity-section">
+        <div class="activity-text">
+            <h2 class="explore">DUNE BASHING</h2>
+            <p class="font">Experience the ultimate thrill in a customized 4x4. Professional drivers navigate steep
+                ridges and sheer drops on the shifting peaks. It's an adrenaline rush like no other.</p>
+            <p class="font">For a more personal touch, try Sandboarding. Strap in and glide down 50-degree slopes of
+                fine, golden dust at 40mph. It's the desert's answer to the Alps.</p>
+            <div style="margin-top: 40px; border-left: 5px solid var(--desert-gold); padding-left: 20px;">
+                <p class="font" style="font-size: 0.9rem; color: #aaa;">"The rhythm of the tires matching the wave of
+                    the dune is the true heartbeat of the desert." - Explorer J. Doe</p>
+            </div>
         </div>
-        <p class="first-line font" style="color: #00A2E2;">UNVEIL THE UNIVERSE</p>
-        <h2 class="explore" style="font-size: 4rem; text-shadow: 0 0 20px #00A2E2;">CELESTIAL STARGAZING</h2>
-        <p class="font" style="max-width: 800px; margin-top: 20px; font-size: 1.2rem; position: relative; z-index: 1;">
-            Away from city lights, the desert
-            sky transforms into a canvas of billions of stars. Join our expert astronomers for an evening of cosmic
-            discovery, using professional telescopes to explore the Milky Way.</p>
+        <div class="activity-img"
+            style="background-image: url('https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=2070&auto=format&fit=crop');">
+        </div>
     </section>
 
-    <section class="packages" style="padding: 100px 10vw; background: #000;">
-        <div class="upper-headings" style="text-align: center;">
-            <p class="first-line font">CURATED EXPERIENCES</p>
-            <h2 class="second-line explore">CHOOSE YOUR ADVENTURE</h2>
+    <!-- MYTHS -->
+    <section class="myths-section">
+        <div class="myth-box">
+            <h3 class="explore">MYTHS OF THE MOJAVE</h3>
+            <p class="myth-content font">
+                "Legend tells of a massive Spanish Galleon, laden with golden pearls, lost for centuries beneath the
+                shifting sands of California's desert. Travelers speak of hearing ghostly oars hitting dry dirt when the
+                moon is full—a ship sailing in a sea that vanished ten thousand years ago."
+            </p>
+            <p class="font" style="color: var(--sand-beige); margin-top: 30px; letter-spacing: 2px;">THE LOST SHIP OF
+                THE DESERT</p>
         </div>
-        <div class="info-grid" style="margin-top: 50px;">
-            <div class="info-card" style="text-align: center;">
-                <h3 class="explore" style="color: #ccc;">Basic Safari</h3>
-                <div style="font-size: 3rem; margin: 20px 0;" class="explore">$49<span
-                        style="font-size: 1rem;">/person</span></div>
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                <ul class="font" style="list-style: none; padding: 0; line-height: 2.5; color: #999;">
-                    <li>Dune Bashing (20 mins)</li>
-                    <li>Camel Ride Experience</li>
-                    <li>Sandboarding Access</li>
-                    <li>Standard BBQ Dinner</li>
+    </section>
+
+
+   
+
+    <!-- MEGA GALLERY -->
+    <section class="section-padding">
+        <div class="section-head">
+            <h2 class="explore">A VISUAL JOURNEY</h2>
+            <p class="font">A kaleidoscope of textures, colors, and the raw power of nature.</p>
+        </div>
+        <div class="mega-gallery">
+            <div class="gallery-item gi-1"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-2"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-3"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-4"
+                style="background-image: url('https://images.unsplash.com/photo-1542332213-31f87348057f?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-5"
+                style="background-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-6"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-7"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-8"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-8"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <div class="gallery-item gi-8"
+                style="background-image: url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+        </div>
+    </section>
+
+     <!-- STARGAZING - COSMIC REDESIGN -->
+    <section class="stargazing-banner">
+        <div class="cosmic-stars">
+            <!-- Simulated Star Particles -->
+            <div class="star" style="top: 10%; left: 20%; width: 2px; height: 2px; --duration: 3s;"></div>
+            <div class="star" style="top: 30%; left: 70%; width: 3px; height: 3px; --duration: 5s;"></div>
+            <div class="star" style="top: 50%; left: 40%; width: 1px; height: 1px; --duration: 4s;"></div>
+            <div class="star" style="top: 80%; left: 10%; width: 2px; height: 2px; --duration: 6s;"></div>
+            <div class="star" style="top: 20%; left: 90%; width: 3px; height: 3px; --duration: 2s;"></div>
+            <div class="star" style="top: 60%; left: 80%; width: 2px; height: 2px; --duration: 7s;"></div>
+            <div class="star" style="top: 40%; left: 30%; width: 1px; height: 1px; --duration: 3s;"></div>
+            <div class="star" style="top: 70%; left: 60%; width: 3px; height: 3px; --duration: 5s;"></div>
+        </div>
+        <div class="star-content">
+            <h2 class="explore">A BILLION STARS</h2>
+            <p class="font" style="font-size: 1.4rem; color: #ddd; margin-top: 20px; line-height: 1.6;">
+                In the profound silence of the dunes, the desert becomes a pure window to the cosmos.
+                With zero light pollution, the Milky Way arches across the sky like a river of silver fire.
+            </p>
+            <p class="font"
+                style="color: var(--desert-gold); margin-top: 30px; letter-spacing: 3px; text-transform: uppercase;">
+                Unrivaled Celestial Clarity
+            </p>
+        </div>
+    </section>
+   
+    <!-- PACKAGES MINIMAL - PREMIUM REDESIGN -->
+    <section class="packages-minimal">
+        <h2 class="explore" style="color: var(--sand-beige); font-size: 3rem; margin-bottom: 20px;">READY TO JOURNEY?
+        </h2>
+        <p class="font" style="color: #aaa; margin-bottom: 50px;">Curated experiences for the modern explorer.</p>
+
+        <div class="pkg-container">
+            <!-- Sunset -->
+            <div class="pkg-mini">
+                <i class="fas fa-sun"></i>
+                <h4 class="font">Sunset Safari</h4>
+                <div class="price">$49</div>
+                <ul class="pkg-features font">
+                    <li>2-Hour Dune Trek</li>
+                    <li>Traditional Coffee</li>
+                    <li>Sunset Photography</li>
                 </ul>
-                <a href="#" class="cta-btn explore" style="padding: 10px 30px; font-size: 1.2rem;">Select Plan</a>
+                <a href="#" class="pkg-btn font">Reserve Now</a>
             </div>
-            <div class="info-card" style="text-align: center; border-color: #FF3D2D; background: #1a0505;">
-                <h3 class="explore" style="color: #FF3D2D;">Premium Safari</h3>
-                <div style="font-size: 3rem; margin: 20px 0;" class="explore">$99<span
-                        style="font-size: 1rem;">/person</span></div>
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                <ul class="font" style="list-style: none; padding: 0; line-height: 2.5; color: #ccc;">
-                    <li>Dune Bashing (45 mins)</li>
-                    <li>Bedouin Cultural Show</li>
-                    <li>Alcoholic Beverage Option</li>
-                    <li>Gourmet Buffet Dinner</li>
+
+            <!-- Overnight -->
+            <div class="pkg-mini" style="border-color: var(--desert-gold); background: rgba(230, 194, 41, 0.05);">
+                <i class="fas fa-moon"></i>
+                <h4 class="font">Overnight Camp</h4>
+                <div class="price">$129</div>
+                <ul class="pkg-features font">
+                    <li>Luxury Tent Stay</li>
                     <li>Stargazing Session</li>
+                    <li>Bedouin Breakfast</li>
                 </ul>
-                <a href="#" class="cta-btn explore" style="padding: 12px 35px; font-size: 1.3rem;">Best Value</a>
+                <a href="#" class="pkg-btn font" style="background: var(--desert-gold); color: #000;">Best Value</a>
             </div>
-            <div class="info-card" style="text-align: center;">
-                <h3 class="explore" style="color: #FFD700;">VIP Royalty</h3>
-                <div style="font-size: 3rem; margin: 20px 0;" class="explore">$199<span
-                        style="font-size: 1rem;">/person</span></div>
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                <ul class="font" style="list-style: none; padding: 0; line-height: 2.5; color: #999;">
+
+            <!-- Private -->
+            <div class="pkg-mini">
+                <i class="fas fa-crown"></i>
+                <h4 class="font">Private Safari</h4>
+                <div class="price">$249</div>
+                <ul class="pkg-features font">
                     <li>Private 4x4 Vehicle</li>
-                    <li>VIP Table Service</li>
-                    <li>Personal Photographer</li>
-                    <li>Overnight Tent Option</li>
-                    <li>Falconry Experience</li>
+                    <li>Personalized Route</li>
+                    <li>Gourmet Dinner</li>
                 </ul>
-                <a href="#" class="cta-btn explore" style="padding: 10px 30px; font-size: 1.2rem;">Go Royal</a>
+                <a href="#" class="pkg-btn font">Go Royal</a>
             </div>
         </div>
+
+        <a href="index.html" class="return-btn explore">RETURN TO OASIS</a>
     </section>
 
-    <section class="booking-cta">
-        <h2 class="explore" style="font-size: 3rem; color: #fff;">READY FOR THE ADVENTURE?</h2>
-        <p class="font" style="font-size: 1.2rem; color: #FFD700;">Book your desert safari today and create memories
-            that last a lifetime.</p>
-        <a href="#" class="cta-btn explore">BOOK YOUR SAFARI NOW</a>
-    </section>
-
-    <div style="text-align: center; padding: 50px; background: #000;">
-        <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
-    </div>
 </body>
 
 </html>
