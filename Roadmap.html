@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <style>
+        @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+        @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&display=swap");
+    </style>
+
+    <link rel="stylesheet" href="travello.css">
+    <link rel="stylesheet" href="roadmap.css">
+    <title>Travello - Interactive Roadmap</title>
+</head>
+
+<body>
+
+    <!-- N-A-V-I-G-A-T-I-O-N   B-A-R-->
+    <nav>
+        <!-- N-A-V   L-O-G-O -->
+        <div class="logo"><img src="shop-img/Horizontal_logo.png" alt=""> </div>
+        <!-- C-O-N-T-A-C-T   P-A-G-E -->
+        <div class="address">
+            <!-- A-D-D-R-E-S-S -->
+            <div class="add">
+                <img class="nav-icon" id="phone" src="Land-img/map icon.png" alt="">
+                <div class="icon-name">
+                    <span class="brief font">Uttar Pradesh, India</span><br>
+                    <span class="name font">Address</span>
+                </div>
+            </div>
+            <!-- P-H-O-N-E -->
+            <div class="add">
+                <img class="nav-icon" id="phone" src="Land-img/phone icon.png" alt="">
+                <div class="icon-name" id="phone-id">
+                    <span class="brief font">+91-9452****07</span><br>
+                    <span class="name font">Contact-us</span>
+                </div>
+            </div>
+            <!-- E-M-A-I-L -->
+            <div class="add">
+                <img class="nav-icon" id="mail" src="Land-img/email icon.jpg" alt="">
+                <div class="icon-name">
+                    <span class="brief font">Travello@gmail.com</span><br>
+                    <span class="name font">Mail-us</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="line"></div>
+
+    <!-- S-E-C-O-N-D   N-A-V-I-G-A-T-I-O-N -->
+    <div class="options">
+        <!-- L-E-F-T   O-P-T-I-O-N-S -->
+        <div class="option1 font">
+            <li><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+            <li><a href="About.html" style="color: inherit; text-decoration: none;">About</a></li>
+            <li><a href="Contact.html" style="color: inherit; text-decoration: none;">Contact</a></li>
+            <li>Blog</li>
+            <li><a href="Login.html" style="color: inherit; text-decoration: none;">Login</a></li>
+            <li><a href="Shop.html" style="color: inherit; text-decoration: none;">Shop-Outfits</a></li>
+            <li><a href="Roadmap.html" style="color: #d12d2d; text-decoration: none;">Roadmap</a></li>
+        </div>
+        <!-- R-I-G-H-T   O-P-T-I-O-N-S -->
+        <div class="option2 font">
+            <i class="fa-solid fa-bag-shopping" id="shopping"></i>
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="" placeholder="Search">
+                <button class="searchButton" href="#">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- H-E-R-O   S-E-C-T-I-O-N -->
+    <div class="roadmap-hero"
+        style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop');">
+        <div class="hero-overlay">
+            <h1 class="explore">Plan Your Journey</h1>
+            <p class="font">Search destination, find recommendations, and build your roadmap.</p>
+        </div>
+    </div>
+
+    <!-- I-N-T-E-R-A-C-T-I-V-E   P-L-A-N-N-E-R -->
+    <div class="roadmap-container">
+
+        <!-- S-E-A-R-C-H   B-A-R -->
+        <div class="planner-search-section">
+            <div class="big-search-box">
+                <input type="text" id="destination-input"
+                    placeholder="Where do you want to go? (e.g. Paris, Goa, Tokyo, Dubai)">
+                <button id="search-btn"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <p class="font suggestion-text">Try: Paris, Goa, Tokyo, Dubai</p>
+        </div>
+
+        <div class="planner-layout">
+
+            <!-- L-E-F-T:   R-E-C-O-M-M-E-N-D-A-T-I-O-N-S -->
+            <div class="recommendations-col">
+                <h2 class="section-title"><i class="fas fa-map-signs"></i> Recommended for You</h2>
+                <div id="results-area" class="results-area">
+                    <p class="placeholder-text">Search for a destination to see spots and hotels.</p>
+                </div>
+            </div>
+
+            <!-- R-I-G-H-T:   M-Y   R-O-A-D-M-A-P -->
+            <div class="roadmap-sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-route"></i> My Roadmap</h3>
+                    <span id="roadmap-count">0 Items</span>
+                </div>
+                <div id="roadmap-items" class="roadmap-items">
+                    <p class="empty-roadmap">Your roadmap is empty.</p>
+                </div>
+                <div class="roadmap-footer">
+                    <button class="save-btn" onclick="alert('Roadmap Saved! (Simulation)')">Save Trip</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- F-O-O-T-E-R   P-A-G-E -->
+    <div class="footer ">
+        <div class="last">
+            <div class="mount-logo">
+                <img src="Land-img/travello logo.png" alt="">
+                <button class="country-btn font red pointer">Country ▶</button>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Learn More</span>
+                <div class="content blue pointer">
+                    <span>Plans & Pricing</span>
+                    <span>Travello Promo Codes</span>
+                    <span>Destinations</span>
+                    <span>Shop-items</span>
+                    <span>Log-in</span>
+                    <span>Tips & Tricks</span>
+                    <span>Sign-up</span>
+                    <span>Licence Information</span>
+                    <span>Legal / Privacy</span>
+                </div>
+            </div>
+            <div class="learn-more font">
+                <span class="more red ">Company</span>
+                <div class="content blue pointer">
+                    <span>About Us</span>
+                    <span>Newsroom</span>
+                    <span>Investors</span>
+                    <span>Carrers</span>
+                    <span>Affiliates</span>
+                    <span>Sell</span>
+                    <span>Contributor Support</span>
+                </div>
+            </div>
+            <div class="learn-more font">
+                <span class="more red">Support</span>
+                <div class="content blue pointer">
+                    <span>(+91) 94526***07</span>
+                    <span>Contact Us</span>
+                    <span>Help</span>
+                    <span>FAQ</span>
+                    <span>Site map</span>
+                </div>
+            </div>
+            <div class="social-medias">
+                <div class="icon-grid">
+                    <a href="https://www.instagram.com/rs_photography_edit/" target="blank">
+                        <img class="insta-x pointer" src="mountain-page-img//insta logo.png" alt="">
+                    </a>
+                    <a href="" target="blank">
+                        <img class="facebook-x pointer" src="mountain-page-img//fb logo.png" alt="">
+                    </a>
+                    <a href="" target="blank">
+                        <img class="youtube-x pointer"
+                            src="mountain-page-img/youtubelogo-fotor-bg-remover-202305098585.png" alt="">
+                    </a>
+                    <a href="" target="blank">
+                        <img class="tweet-x pointer" src="mountain-page-img/twiiter logo.png" alt="">
+                    </a>
+                </div>
+                <div class="download-btn">
+                    <form action="/" method="get" class="apple">
+                        <button class="apple-store pointer">
+                            <img src="mountain-page-img/Apple logo.png">
+                            <span class="font">Download on the <p class="store font">App Store</p></span>
+                        </button>
+                    </form><br>
+                    <form action="/" method="get" class="apple" id="appl">
+                        <button class="apple-store pointer">
+                            <img src="mountain-page-img/play store-fotor-bg-remover-2023060219433.png">
+                            <span class="font">Download on the <p class="store font">Google Play</p></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="roadmap.js"></script>
+
+</body>
+
+</html>
