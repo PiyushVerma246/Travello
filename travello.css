@@ -1543,55 +1543,6 @@ ol .ico .descr {
     background-color: #000000;
 }
 
-.apple-store {
-    display: flex;
-}
-
-.apple-store img {
-    filter: invert(100);
-    margin-top: -3px;
-    margin-left: -1px;
-    height: 6.2vh;
-}
-
-.line-x {
-    height: 1px;
-    background-color: blueviolet;
-    opacity: 0.2;
-    box-shadow: 1px 1px 1px white;
-    width: 87vw;
-    margin-left: 5vw;
-    margin-top: -7vh;
-}
-
-.download-btn {
-    margin-left: 3vw;
-    margin-top: 1.3vh;
-}
-
-.apple-store span {
-    text-shadow: 2px 2px 2px #FF3D2D, 2px 2px 2px black, 2px 2px 2px black;
-    font-weight: 600;
-    font-size: 0.8vw;
-    color: #ccc;
-}
-
-.footer marquee {
-    margin-left: 4.5vw;
-    margin-top: -1vh;
-    width: 87vw;
-    font-weight: 600;
-    text-shadow: 2px 2px 2px #FF3D2D, 2px 2px 2px black, 2px 2px 2px black;
-}
-
-#appl {
-    margin-top: 1vh;
-}
-
-.store {
-    transform: rotateZ(60deg);
-}
-
 .hexagons:after {
     transform: rotateZ(-60deg);
 }
@@ -1729,67 +1680,62 @@ ol .ico .descr {
     height: 8.7vh;
 }
 
-.apple button {
-    width: 10.3vw;
-    height: 5.5vh;
-    border: none;
-    border-radius: 0.5vw;
-    box-shadow: 0px 0px 10px #00A2E2;
-    background-color: #000000;
+/* FOOTER DOWNLOAD BUTTONS - CLEANED */
+.download-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .apple-store {
+    background: #000;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: 0.3s;
+    width: fit-content;
+    min-width: 180px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.apple-store:hover {
+    background: #111;
+    border-color: #00A2E2;
+    transform: translateY(-2px);
 }
 
 .apple-store img {
-    filter: invert(100);
-    margin-top: -3px;
-    margin-left: -1px;
-    height: 6.2vh;
-}
-
-.line-x {
-    height: 1px;
-    background-color: blueviolet;
-    opacity: 0.2;
-    box-shadow: 1px 1px 1px white;
-    width: 87vw;
-    margin-left: 5vw;
-    margin-top: -7vh;
-}
-
-.download-btn {
-    margin-left: 3vw;
-    margin-top: 1.3vh;
+    height: 32px;
+    width: auto;
+    filter: invert(1);
 }
 
 .apple-store span {
-    text-shadow: 2px 2px 2px #FF3D2D, 2px 2px 2px black, 2px 2px 2px black;
-    font-weight: 600;
-    font-size: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+    font-size: 0.75rem !important;
     color: #ccc;
-}
-
-.footer marquee {
-    margin-left: 4.5vw;
-    margin-top: -1vh;
-    width: 87vw;
-    font-weight: 600;
-    text-shadow: 2px 2px 2px #FF3D2D, 2px 2px 2px black, 2px 2px 2px black;
-}
-
-#appl {
-    margin-top: 1vh;
+    text-shadow: none;
 }
 
 .store {
-    margin-top: -4px;
-    font-weight: 600;
-    font-size: 1.4vw;
-    text-shadow: 2px 2px 2px #00A2E2, 2px 2px 2px black, 2px 2px 2px black;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
     color: #FF3D2D;
+    margin: 0 !important;
+    text-transform: none !important;
+    text-shadow: none !important;
+    transform: none !important;
 }
+
 
 /* C-A-T-E-G-O-R-Y   D-E-S-T-I-N-A-T-I-O-N-S */
 .category-destinations {
@@ -1931,5 +1877,140 @@ ol .ico .descr {
     .explore-btn {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* HOME ROADMAP SECTION */
+.home-roadmap {
+    padding: 100px 10%;
+    background: linear-gradient(to bottom, #000, #050505);
+    overflow: hidden;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.roadmap-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.roadmap-image:hover {
+    transform: scale(1.02);
+}
+
+.roadmap-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.roadmap-badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: #00A2E2;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 20px rgba(0, 162, 226, 0.3);
+}
+
+.roadmap-text-box {
+    color: white;
+}
+
+.roadmap-features {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rm-feat {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: #eee;
+}
+
+.rm-feat i {
+    color: #00A2E2;
+    font-size: 1.4rem;
+}
+
+.roadmap-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: #FF3D2D;
+    color: white;
+    text-decoration: none;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 0 10px 25px rgba(255, 61, 45, 0.3);
+}
+
+.roadmap-cta:hover {
+    transform: translateY(-5px);
+    background: white;
+    color: #FF3D2D;
+    box-shadow: 0 15px 35px rgba(255, 61, 45, 0.4);
+}
+
+.ripple {
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 162, 226, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(0, 162, 226, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 162, 226, 0);
+    }
+}
+
+@media (max-width: 900px) {
+    .roadmap-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .roadmap-badge {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .roadmap-text-box .first-line {
+        text-align: center !important;
+    }
+
+    .rm-feat {
+        justify-content: center;
+    }
+
+    .roadmap-cta {
+        width: 100%;
+        justify-content: center;
     }
 }
