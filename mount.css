@@ -322,6 +322,7 @@ ul li:nth-child(4) a:before {
         width: 100%;
     }
 }
+
 /* 
 .swiper-slide-active h2::after {
     animation: line 0.5s linear forwards;
@@ -1302,4 +1303,204 @@ p {
         margin-top: -10vh;
         margin-right: -2vh;
     }
+}
+
+/* Packages Section - Premium Redesign */
+.packages-minimal {
+    position: relative;
+    padding: 100px 8%;
+    background: linear-gradient(to top, #000, #001f3f);
+    text-align: center;
+    overflow: hidden;
+}
+
+.pkg-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 50px auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.pkg-mini {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    width: 280px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.pkg-mini:hover {
+    transform: translateY(-15px);
+    background: rgba(0, 162, 226, 0.05);
+    border-color: #00A2E2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.pkg-mini i {
+    font-size: 2.5rem;
+    color: #00A2E2;
+    margin-bottom: 20px;
+}
+
+.pkg-mini h4 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.pkg-mini .price {
+    font-size: 2rem;
+    color: #00A2E2;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.pkg-mini .pkg-features {
+    position: static !important;
+    transform: none !important;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.pkg-btn {
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid #00A2E2;
+    color: #00A2E2;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.pkg-mini:hover .pkg-btn {
+    background: #00A2E2;
+    color: #000;
+}
+
+/* Return Button */
+.return-btn {
+    display: inline-block;
+    margin-top: 60px;
+    background: #00A2E2;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 15px 45px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 162, 226, 0.3);
+}
+
+.return-btn:hover {
+    transform: scale(1.05);
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* FROZEN PEAKS - BIOLOGICAL IMMERSION */
+.mountain-life {
+    background: linear-gradient(to bottom, #001f3f, #000);
+}
+
+.section-padding {
+    padding: 100px 8%;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-head h2 {
+    font-size: 4rem;
+    color: #00A2E2;
+    text-shadow: 2px 2px 1px black, 3px 3px 1px #FF3D2D;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.section-head p {
+    color: #ccc;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.life-card {
+    position: relative;
+    height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 162, 226, 0.4);
+    background-color: #001f3f;
+}
+
+.life-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.life-card:hover .life-img {
+    transform: scale(1.15);
+}
+
+.life-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+    padding: 40px 30px;
+    transform: translateY(80px);
+    transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.life-card:hover .life-overlay {
+    transform: translateY(0);
+}
+
+.life-overlay h4 {
+    font-size: 2rem;
+    margin: 0 0 12px 0;
+    color: #00A2E2;
+    text-shadow: 2px 2px 5px black;
+}
+
+.life-overlay p {
+    font-size: 1rem;
+    color: #eee;
+    opacity: 0;
+    transition: 0.5s;
+    line-height: 1.5;
+}
+
+.life-card:hover .life-overlay p {
+    opacity: 1;
 }
