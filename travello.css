@@ -2014,3 +2014,256 @@ ol .ico .descr {
         justify-content: center;
     }
 }
+
+/* T-R-A-V-E-L   S-H-O-P   V2 */
+.travel-shop-v2 {
+    padding-bottom: 12vh;
+    padding-top: 5vh;
+}
+
+.shop-container {
+    display: flex;
+    padding: 0 10vw;
+    gap: 30px;
+    height: 700px;
+}
+
+/* Big Box Styles */
+.shop-big-box {
+    flex: 1.2;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.shop-img-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: brightness(0.6);
+}
+
+.shop-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+}
+
+.shop-cat {
+    color: #00A2E2;
+    letter-spacing: 3px;
+    font-size: 0.9vw;
+    margin-bottom: 15px;
+}
+
+.shop-overlay h2 {
+    color: #FF3D2D;
+    font-size: 5vw;
+    line-height: 0.9;
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.shop-overlay p {
+    color: #ccc;
+    font-size: 1.1vw;
+    max-width: 400px;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.shop-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.shop-btn-v2 {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1vw;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.shop-btn-v2:not(.shop-now) {
+    background: #FF3D2D;
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 61, 45, 0.4);
+}
+
+.shop-now {
+    border: 2px solid #00A2E2;
+    color: #00A2E2;
+}
+
+.shop-btn-v2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 162, 226, 0.3);
+}
+
+/* Grid Styles */
+.shop-small-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.shop-sub-box {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #111;
+}
+
+.shop-sub-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: all 0.5s ease;
+}
+
+.shop-sub-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+}
+
+.shop-sub-text p {
+    color: #FF3D2D;
+    font-size: 1.5vw;
+    margin-bottom: 5px;
+}
+
+.shop-sub-text span {
+    color: #00A2E2;
+    font-size: 0.8vw;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.mini-shop-btn {
+    width: 40px;
+    height: 40px;
+    background: #FF3D2D;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.shop-sub-box:hover img {
+    transform: scale(1.1);
+    opacity: 0.4;
+}
+
+.shop-sub-box:hover .mini-shop-btn {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* View All Card */
+.view-all {
+    background: linear-gradient(45deg, #FF3D2D, #00A2E2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.view-all-content {
+    text-align: center;
+    color: white;
+}
+
+.view-icon {
+    font-size: 3vw;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.view-all:hover .view-icon {
+    transform: rotate(-45deg) scale(1.2);
+}
+
+.shop-link {
+    display: block;
+    margin-top: 15px;
+    color: white;
+    text-decoration: underline;
+    font-size: 0.9vw;
+}
+
+/* Animation on hover big box */
+.shop-big-box:hover .shop-img-bg {
+    transform: scale(1.05);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .shop-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .shop-big-box {
+        height: 500px;
+    }
+
+    .shop-small-grid {
+        height: 500px;
+    }
+
+    .shop-overlay h2 {
+        font-size: 8vw;
+    }
+
+    .shop-cat {
+        font-size: 2vw;
+    }
+
+    .shop-overlay p {
+        font-size: 2vw;
+    }
+
+    .shop-btn-v2 {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .shop-small-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .shop-sub-box {
+        height: 250px;
+    }
+
+    .shop-sub-text p {
+        font-size: 6vw;
+    }
+
+    .shop-sub-text span {
+        font-size: 4vw;
+    }
+
+    .view-icon {
+        font-size: 10vw;
+    }
+}
