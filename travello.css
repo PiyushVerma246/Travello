@@ -117,7 +117,9 @@ html {
 nav {
     display: flex;
     position: relative;
-    /* margin-top: -590px; */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    padding-bottom: 1vw;
+    z-index: 100;
 }
 
 /* N-A-V   L-O-G-O */
@@ -153,17 +155,19 @@ nav {
 
 
 .brief {
-    font-size: 0.6vw;
+    font-size: 0.75vw;
     color: #00A2E2;
-    text-shadow: 2px 2px 1px black, 2px 2px 1px #FF3D2D;
+    text-shadow: 2px 2px 2px black, 0 0 10px rgba(0, 162, 226, 0.4);
+    letter-spacing: 0.05vw;
 }
 
 .name {
     color: #FF3D2D;
-    text-shadow: 2px 2px 1px black, 2px 2px 1px #00A2E2;
-    font-size: 1.1vw;
+    text-shadow: 2px 2px 2px black, 0 0 10px rgba(255, 61, 45, 0.4);
+    font-size: 1.2vw;
     font-weight: 800;
     letter-spacing: 0.1vw;
+    text-transform: uppercase;
 }
 
 #phone {
@@ -241,14 +245,37 @@ nav {
     display: flex;
     position: relative;
     margin-top: -2.7vw;
+    background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    padding: 0.5vw 0;
+    z-index: 99;
 }
 
 /* L-E-F-T   O-P-T-I-O-N-S */
 .option1 li {
     list-style: none;
-    font-size: 1.27vw;
+    font-size: 1.4vw;
+    font-family: exploreFont;
+    /* Thematic Adventure Font */
     color: #00A2E2;
-    text-shadow: 2px 2px 1px black, 2px 2px 2px #f03727;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow:
+        2px 2px 0px black,
+        -1px -1px 0px black,
+        1px -1px 0px black,
+        -1px 1px 0px black,
+        0px 0px 15px rgba(0, 162, 226, 0.5);
+    /* Outer Glow */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.option1 li:hover {
+    color: #FF3D2D;
+    transform: scale(1.1);
+    text-shadow:
+        2px 2px 0px black,
+        0px 0px 20px rgba(255, 61, 45, 0.8);
 }
 
 .option1 {
