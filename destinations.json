@@ -1,0 +1,53 @@
+{
+    "destinations": [
+        {
+            "id": 1,
+            "name": "Farway Sydney",
+            "image": "land-img/farway sydney.jpg",
+            "price": "$500",
+            "offer": "Special Offer"
+        },
+        {
+            "id": 2,
+            "name": "Statue of Liberty",
+            "image": "land-img/statue liberty.jpg",
+            "price": "$500",
+            "offer": "Special Offer"
+        },
+        {
+            "id": 3,
+            "name": "Sunny Barcolena",
+            "image": "land-img/sunny barcelona.jpg",
+            "price": "$500",
+            "offer": "Special Offer"
+        },
+        {
+            "id": 4,
+            "name": "Blue Dlamatia",
+            "image": "land-img/blue dalmatia.jpg",
+            "price": "$500",
+            "offer": "Special Offer"
+        },
+        {
+            "id": 5,
+            "name": "Kohisung Taiwan",
+            "image": "land-img/kohisung taiwan.jpg",
+            "price": "$500",
+            "offer": "Special Offer"
+        },
+        {
+            "id": 6,
+            "name": "Tasteful Mauritius",
+            "image": "land-img/tasteful mauritius.jpg",
+            "price": "$500",
+            "offer": "Special Offer"
+        },
+        {
+            "id": 7,
+            "name": "Ancient Roam",
+            "image": "land-img/trip to ancient roam.jpg",
+            "price": "$500",
+            "offer": "Special Offer"
+        }
+    ]
+}

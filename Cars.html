@@ -141,6 +141,66 @@
             color: #FF3D2D;
             margin-right: 5px;
         }
+
+        .card-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #FF3D2D;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .card-btn:hover {
+            background: #00A2E2;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 162, 226, 0.4);
+        }
+
+        /* Search Results Styles */
+        #search-results {
+            display: none;
+            padding: 60px 5vw;
+            background: #080808;
+            border-top: 2px solid #00A2E2;
+            margin-top: 50px;
+        }
+
+        .spinner {
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #FF3D2D;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 12px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.3rem;
+            color: #00A2E2;
+            margin: 35px 0;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -173,9 +233,28 @@
                     <option>Convertible</option>
                 </select>
             </div>
-            <button class="book-now font">FIND YOUR RIDE <i class="fa-solid fa-car"></i></button>
+            <button type="submit" id="search-btn" class="book-now font">
+                <span class="btn-text">FIND YOUR RIDE <i class="fa-solid fa-car"></i></span>
+            </button>
         </form>
     </div>
+
+    <!-- Search Results Section -->
+    <section id="search-results">
+        <div class="upper-headings">
+            <p class="first-line font">AVAILABLE FLEET</p>
+            <h2 class="second-line explore">THE ROAD AWAITS</h2>
+        </div>
+
+        <div id="loading-state" class="loading-text font">
+            <span>Scanning local dealerships for availability...</span>
+            <div class="spinner"></div>
+        </div>
+
+        <div id="results-grid" class="car-grid">
+            <!-- Results will be injected here -->
+        </div>
+    </section>
 
     <section class="featured-cars">
         <div class="upper-headings">
@@ -193,6 +272,7 @@
                         <span class="spec-item"><i class="fas fa-gas-pump"></i> Hybrid</span>
                     </div>
                     <p class="font" style="color: #FF3D2D; font-size: 1.5rem; font-weight: bold;">$120/day</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="car-card">
@@ -205,6 +285,7 @@
                         <span class="spec-item"><i class="fas fa-shuttle-van"></i> 7 Seats</span>
                     </div>
                     <p class="font" style="color: #FF3D2D; font-size: 1.5rem; font-weight: bold;">$150/day</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="car-card">
@@ -217,6 +298,7 @@
                         <span class="spec-item"><i class="fas fa-shield-alt"></i> 5 Seats</span>
                     </div>
                     <p class="font" style="color: #FF3D2D; font-size: 1.5rem; font-weight: bold;">$95/day</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
         </div>
@@ -225,6 +307,94 @@
     <div style="text-align: center; padding: 50px;">
         <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
     </div>
+
+    <script>
+        const searchBtn = document.getElementById('search-btn');
+        const searchResults = document.getElementById('search-results');
+        const resultsGrid = document.getElementById('results-grid');
+        const loadingState = document.getElementById('loading-state');
+        const btnText = searchBtn.querySelector('.btn-text');
+
+        const mockCars = [
+            {
+                name: "Tesla Legend S",
+                tag: "LUXURY",
+                specs: [
+                    { icon: "fas fa-bolt", text: "Electric" },
+                    { icon: "fas fa-shield-alt", text: "Auto-pilot" }
+                ],
+                price: "$180/day",
+                img: "land-img/destinations/london.webp"
+            },
+            {
+                name: "Safari Beast",
+                tag: "ADVENTURE",
+                specs: [
+                    { icon: "fas fa-cog", text: "4x4" },
+                    { icon: "fas fa-mountain", text: "Off-road" }
+                ],
+                price: "$210/day",
+                img: "land-img/destinations/desert.jpg"
+            },
+            {
+                name: "Ocean breeze",
+                tag: "CONVERTIBLE",
+                specs: [
+                    { icon: "fas fa-sun", text: "Open Top" },
+                    { icon: "fas fa-tachometer-alt", text: "Fast" }
+                ],
+                price: "$140/day",
+                img: "land-img/destinations/sydney.jpg"
+            }
+        ];
+
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Show loading state
+            btnText.innerHTML = 'SEARCHING... <div class="spinner"></div>';
+            searchBtn.style.opacity = '0.7';
+            searchBtn.disabled = true;
+
+            // Show sections
+            searchResults.style.display = 'block';
+            resultsGrid.innerHTML = '';
+            loadingState.style.display = 'flex';
+
+            searchResults.scrollIntoView({ behavior: 'smooth' });
+
+            // Simulate delay
+            setTimeout(() => {
+                loadingState.style.display = 'none';
+
+                mockCars.forEach(car => {
+                    let specsHtml = '';
+                    car.specs.forEach(spec => {
+                        specsHtml += `<span class="spec-item"><i class="${spec.icon}"></i> ${spec.text}</span>`;
+                    });
+
+                    const card = `
+                        <div class="car-card">
+                            <div style="height: 250px; background: url('${car.img}') center/cover;"></div>
+                            <div class="car-info">
+                                <span class="car-tag">${car.tag}</span>
+                                <h4 class="explore">${car.name}</h4>
+                                <div class="spec-list font">${specsHtml}</div>
+                                <p class="font" style="color: #FF3D2D; font-size: 1.5rem; font-weight: bold;">${car.price}</p>
+                                <button class="card-btn font">BOOK NOW</button>
+                            </div>
+                        </div>
+                    `;
+                    resultsGrid.innerHTML += card;
+                });
+
+                // Reset button
+                btnText.innerHTML = 'FIND YOUR RIDE <i class="fa-solid fa-car"></i>';
+                searchBtn.style.opacity = '1';
+                searchBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
 </body>
 
 </html>

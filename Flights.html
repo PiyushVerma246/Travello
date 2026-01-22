@@ -68,6 +68,11 @@
             border-color: #FF3D2D;
         }
 
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+
         .book-now {
             grid-column: 1 / -1;
             padding: 20px;
@@ -126,6 +131,64 @@
             font-weight: 700;
             font-size: 1.2rem;
         }
+
+        .card-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #FF3D2D;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .card-btn:hover {
+            background: #00A2E2;
+            transform: translateY(-2px);
+        }
+
+        /* Search Results Styles */
+        #search-results {
+            display: none;
+            padding: 50px 5vw;
+            background: #050505;
+            border-top: 1px solid rgba(255, 61, 45, 0.3);
+            margin-top: 50px;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            color: #00A2E2;
+            margin: 30px 0;
+        }
     </style>
 </head>
 
@@ -162,9 +225,28 @@
                     <option>Family (2+2)</option>
                 </select>
             </div>
-            <button class="book-now font">SEARCH FLIGHTS <i class="fa-solid fa-plane-departure"></i></button>
+            <button type="submit" id="search-btn" class="book-now font">
+                <span class="btn-text">SEARCH FLIGHTS <i class="fa-solid fa-plane-departure"></i></span>
+            </button>
         </form>
     </div>
+
+    <!-- Search Results Section -->
+    <section id="search-results">
+        <div class="upper-headings">
+            <p class="first-line font">AVAILABLE FLIGHTS</p>
+            <h2 class="second-line explore">DISCOVER YOUR JOURNEY</h2>
+        </div>
+
+        <div id="loading-state" class="loading-text font">
+            <span>Searching through 450+ airlines...</span>
+            <div class="spinner"></div>
+        </div>
+
+        <div id="results-grid" class="flight-grid">
+            <!-- Results will be injected here -->
+        </div>
+    </section>
 
     <section class="featured-flights">
         <div class="upper-headings">
@@ -178,6 +260,7 @@
                     <h4 class="explore">London Express</h4>
                     <p class="font">Non-stop luxury flight from New York.</p>
                     <span class="price-tag">$450</span>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="flight-card">
@@ -186,6 +269,7 @@
                     <h4 class="explore">Sydney Skyway</h4>
                     <p class="font">Premium economy with top-tier service.</p>
                     <span class="price-tag">$890</span>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="flight-card">
@@ -194,6 +278,7 @@
                     <h4 class="explore">Maldives Island Hop</h4>
                     <p class="font">Reach paradise in half the time.</p>
                     <span class="price-tag">$320</span>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
         </div>
@@ -202,6 +287,82 @@
     <div style="text-align: center; padding: 50px;">
         <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
     </div>
+
+    <script>
+        const searchBtn = document.getElementById('search-btn');
+        const searchResults = document.getElementById('search-results');
+        const resultsGrid = document.getElementById('results-grid');
+        const loadingState = document.getElementById('loading-state');
+        const btnText = searchBtn.querySelector('.btn-text');
+
+        const mockFlights = [
+            {
+                name: "India Heritage",
+                desc: "Explore the majesty of the Taj Mahal and royal palaces.",
+                price: "$450",
+                img: "land-img/destinations/Taj-Mahal-.jpg"
+            },
+            {
+                name: "Paris Prestige",
+                desc: "Luxury business class experience to the City of Light.",
+                price: "$650",
+                img: "land-img/Paris.jpg"
+            },
+            {
+                name: "Dubai Desert Wings",
+                desc: "Non-stop flight to the futuristic metropolis.",
+                price: "$520",
+                img: "land-img/destinations/desert.jpg"
+            },
+            {
+                name: "Swiss Alpine Air",
+                desc: "Breathtaking route over the Swiss Alps.",
+                price: "$490",
+                img: "land-img/destinations/mounts.jpg"
+            }
+        ];
+
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Show loading state
+            btnText.innerHTML = 'SEARCHING... <div class="spinner"></div>';
+            searchBtn.style.opacity = '0.7';
+            searchBtn.disabled = true;
+
+            // Scroll to results or show results section
+            searchResults.style.display = 'block';
+            resultsGrid.innerHTML = '';
+            loadingState.style.display = 'flex';
+
+            searchResults.scrollIntoView({ behavior: 'smooth' });
+
+            // Simulate search delay
+            setTimeout(() => {
+                loadingState.style.display = 'none';
+
+                mockFlights.forEach(flight => {
+                    const card = `
+                        <div class="flight-card">
+                            <div style="height: 200px; background: url('${flight.img}') center/cover;"></div>
+                            <div class="flight-info">
+                                <h4 class="explore">${flight.name}</h4>
+                                <p class="font">${flight.desc}</p>
+                                <span class="price-tag">${flight.price}</span>
+                                <button class="card-btn font">BOOK NOW</button>
+                            </div>
+                        </div>
+                    `;
+                    resultsGrid.innerHTML += card;
+                });
+
+                // Reset button
+                btnText.innerHTML = 'SEARCH FLIGHTS <i class="fa-solid fa-plane-departure"></i>';
+                searchBtn.style.opacity = '1';
+                searchBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
 </body>
 
 </html>

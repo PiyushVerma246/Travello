@@ -116,6 +116,65 @@
             color: #FFD700;
             margin-bottom: 15px;
         }
+
+        .card-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #00A2E2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .card-btn:hover {
+            background: #FF3D2D;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 162, 226, 0.3);
+        }
+
+        /* Search Results Styles */
+        #search-results {
+            display: none;
+            padding: 50px 5vw;
+            background: #0a0a0a;
+            border-top: 2px solid rgba(0, 162, 226, 0.3);
+            margin-top: 50px;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #00A2E2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            color: #FF3D2D;
+            margin: 30px 0;
+        }
     </style>
 </head>
 
@@ -147,9 +206,28 @@
                     <option>2 Rooms, 4 Adults</option>
                 </select>
             </div>
-            <button class="book-now font">FIND BEST STAYS <i class="fa-solid fa-hotel"></i></button>
+            <button type="submit" id="search-btn" class="book-now font">
+                <span class="btn-text">FIND BEST STAYS <i class="fa-solid fa-hotel"></i></span>
+            </button>
         </form>
     </div>
+
+    <!-- Search Results Section -->
+    <section id="search-results">
+        <div class="upper-headings">
+            <p class="first-line font">AVAILABLE STAYS</p>
+            <h2 class="second-line explore">DISCOVER LUXURY</h2>
+        </div>
+
+        <div id="loading-state" class="loading-text font">
+            <span>Matching your preferences with 10k+ hotels...</span>
+            <div class="spinner"></div>
+        </div>
+
+        <div id="results-grid" class="hotel-grid">
+            <!-- Results will be injected here -->
+        </div>
+    </section>
 
     <section class="featured-hotels">
         <div class="upper-headings">
@@ -165,6 +243,7 @@
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="font">Oceanfront villa with private pool and world-class spa.</p>
                     <p class="font" style="color: #00A2E2; font-weight: bold; font-size: 1.2rem;">From $299/night</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="hotel-card">
@@ -175,6 +254,7 @@
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="font">Historic architecture meets modern luxury in the heart of Rome.</p>
                     <p class="font" style="color: #00A2E2; font-weight: bold; font-size: 1.2rem;">From $180/night</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="hotel-card">
@@ -185,6 +265,7 @@
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                     <p class="font">Experience the city lights from the tallest luxury hotel.</p>
                     <p class="font" style="color: #00A2E2; font-weight: bold; font-size: 1.2rem;">From $250/night</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
         </div>
@@ -193,6 +274,85 @@
     <div style="text-align: center; padding: 50px;">
         <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
     </div>
+
+    <script>
+        const searchBtn = document.getElementById('search-btn');
+        const searchResults = document.getElementById('search-results');
+        const resultsGrid = document.getElementById('results-grid');
+        const loadingState = document.getElementById('loading-state');
+        const btnText = searchBtn.querySelector('.btn-text');
+
+        const mockHotels = [
+            {
+                name: "Royal Palace",
+                rating: 5,
+                desc: "Regal suites with world-class hospitality and heritage views.",
+                price: "$350/night",
+                img: "land-img/destinations/Taj-Mahal-.jpg"
+            },
+            {
+                name: "Beachfront Bliss",
+                rating: 5,
+                desc: "Direct access to crystal clear waters and white sandy beaches.",
+                price: "$420/night",
+                img: "land-img/destinations/maldives.jpg"
+            },
+            {
+                name: "Mountain Retreat",
+                rating: 4,
+                desc: "Cozy cabins with breathtaking panoramic mountain views.",
+                price: "$199/night",
+                img: "land-img/destinations/mounts.jpg"
+            }
+        ];
+
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Show loading state
+            btnText.innerHTML = 'FINDING... <div class="spinner"></div>';
+            searchBtn.style.opacity = '0.7';
+            searchBtn.disabled = true;
+
+            // Show sections
+            searchResults.style.display = 'block';
+            resultsGrid.innerHTML = '';
+            loadingState.style.display = 'flex';
+
+            searchResults.scrollIntoView({ behavior: 'smooth' });
+
+            // Simulate delay
+            setTimeout(() => {
+                loadingState.style.display = 'none';
+
+                mockHotels.forEach(hotel => {
+                    let ratingHtml = '';
+                    for (let i = 0; i < 5; i++) {
+                        ratingHtml += `<i class="${i < hotel.rating ? 'fas' : 'far'} fa-star"></i>`;
+                    }
+
+                    const card = `
+                        <div class="hotel-card">
+                            <div style="height: 250px; background: url('${hotel.img}') center/cover;"></div>
+                            <div class="hotel-info">
+                                <h4 class="explore">${hotel.name}</h4>
+                                <div class="rating">${ratingHtml}</div>
+                                <p class="font">${hotel.desc}</p>
+                                <p class="font" style="color: #00A2E2; font-weight: bold; font-size: 1.2rem;">From ${hotel.price}</p>
+                                <button class="card-btn font">BOOK NOW</button>
+                            </div>
+                        </div>
+                    `;
+                    resultsGrid.innerHTML += card;
+                });
+
+                // Reset button
+                btnText.innerHTML = 'FIND BEST STAYS <i class="fa-solid fa-hotel"></i>';
+                searchBtn.style.opacity = '1';
+                searchBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
 </body>
 
 </html>

@@ -138,6 +138,66 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
         }
+
+        .card-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background: #FF3D2D;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .card-btn:hover {
+            background: #00A2E2;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Search Results Styles */
+        #search-results {
+            display: none;
+            padding: 70px 7vw;
+            background: #050202;
+            border-top: 1px solid rgba(255, 61, 45, 0.3);
+            margin-top: 50px;
+        }
+
+        .spinner {
+            width: 25px;
+            height: 25px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #FF3D2D;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.4rem;
+            color: #00A2E2;
+            margin: 40px 0;
+            text-shadow: 1px 1px black;
+        }
     </style>
 </head>
 
@@ -174,9 +234,28 @@
                     <option>6+ People</option>
                 </select>
             </div>
-            <button class="book-now font">RESERVE TABLE <i class="fa-solid fa-utensils"></i></button>
+            <button type="submit" id="search-btn" class="book-now font">
+                <span class="btn-text">RESERVE TABLE <i class="fa-solid fa-utensils"></i></span>
+            </button>
         </form>
     </div>
+
+    <!-- Search Results Section -->
+    <section id="search-results">
+        <div class="upper-headings">
+            <p class="first-line font">AVAILABLE TABLES</p>
+            <h2 class="second-line explore">THE BEST SEATS AWAIT</h2>
+        </div>
+
+        <div id="loading-state" class="loading-text font">
+            <span>Checking availability at 200+ venues...</span>
+            <div class="spinner"></div>
+        </div>
+
+        <div id="results-grid" class="restaurant-grid">
+            <!-- Results will be injected here -->
+        </div>
+    </section>
 
     <section class="featured-dining">
         <div class="upper-headings">
@@ -192,6 +271,7 @@
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="font">Fine dining in the heart of Rome with a 500-year-old wine cellar.</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="res-card">
@@ -202,6 +282,7 @@
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                     <p class="font">Experience Riverside dining with a panoramic view of the London Eye.</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
             <div class="res-card">
@@ -212,6 +293,7 @@
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="font">Under-ocean dining experience surrounded by exotic marine life.</p>
+                    <button class="card-btn font">BOOK NOW</button>
                 </div>
             </div>
         </div>
@@ -220,6 +302,85 @@
     <div style="text-align: center; padding: 70px; background: #000;">
         <a href="index.html" class="explore-btn font" style="text-decoration: none;">Back to Home</a>
     </div>
+
+    <script>
+        const searchBtn = document.getElementById('search-btn');
+        const searchResults = document.getElementById('search-results');
+        const resultsGrid = document.getElementById('results-grid');
+        const loadingState = document.getElementById('loading-state');
+        const btnText = searchBtn.querySelector('.btn-text');
+
+        const mockRestaurants = [
+            {
+                name: "Taj Royal Dining",
+                cuisine: "Mughlai & Indian",
+                desc: "Experience royalty with a view of historical monuments.",
+                img: "land-img/destinations/Taj-Mahal-.jpg",
+                stars: 5
+            },
+            {
+                name: "Eiffel Bistro",
+                cuisine: "French Contemporary",
+                desc: "Charming Parisian dining with the finest ingredients.",
+                img: "land-img/Paris.jpg",
+                stars: 4
+            },
+            {
+                name: "Desert Oasis",
+                cuisine: "Middle Eastern",
+                desc: "Dine under the stars in a traditional desert setting.",
+                img: "land-img/destinations/desert.jpg",
+                stars: 5
+            }
+        ];
+
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Show loading state
+            btnText.innerHTML = 'CHECKING... <div class="spinner"></div>';
+            searchBtn.style.opacity = '0.7';
+            searchBtn.disabled = true;
+
+            // Show sections
+            searchResults.style.display = 'block';
+            resultsGrid.innerHTML = '';
+            loadingState.style.display = 'flex';
+
+            searchResults.scrollIntoView({ behavior: 'smooth' });
+
+            // Simulate delay
+            setTimeout(() => {
+                loadingState.style.display = 'none';
+
+                mockRestaurants.forEach(res => {
+                    let starsHtml = '';
+                    for (let i = 0; i < 5; i++) {
+                        starsHtml += `<i class="${i < res.stars ? 'fas' : 'far'} fa-star"></i>`;
+                    }
+
+                    const card = `
+                        <div class="res-card">
+                            <div style="height: 280px; background: url('${res.img}') center/cover;"></div>
+                            <div class="res-info">
+                                <h4 class="explore">${res.name}</h4>
+                                <span class="cuisine font">${res.cuisine}</span>
+                                <div class="stars">${starsHtml}</div>
+                                <p class="font">${res.desc}</p>
+                                <button class="card-btn font">BOOK NOW</button>
+                            </div>
+                        </div>
+                    `;
+                    resultsGrid.innerHTML += card;
+                });
+
+                // Reset button
+                btnText.innerHTML = 'RESERVE TABLE <i class="fa-solid fa-utensils"></i>';
+                searchBtn.style.opacity = '1';
+                searchBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
 </body>
 
 </html>

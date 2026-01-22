@@ -107,96 +107,19 @@
 
         <!-- D-E-S-T-I-N-A-T-I-O-N   S-L-I-D-E-R -->
         <div class="slider owl-carousel">
-            <div class="se">
-                <div class="card sarak">
-                    <div class="trav">
-                        <img class="desto" src="land-img/farway sydney.jpg" alt="">
-                        <div class="lab">
-                            <span class="off">Special Offer</span>
-                            <span class="price">$500</span>
-                        </div>
-                        <p>Farway Sydney</p>
-                    </div>
-                </div>
-                <div class="card ">
-                    <div class="trav">
-                        <img class="desto" src="land-img/statue liberty.jpg" alt="">
-                        <div class="lab">
-                            <span class="off">Special Offer</span>
-                            <span class="price">$500</span>
-                        </div>
-                        <p>Statue of Liberty</p>
-                    </div>
-                </div>
-            </div>
-            <div class="se">
-                <div class="card sarak">
-                    <div class="trav">
-                        <img class="desto" src="land-img/sunny barcelona.jpg" alt="">
-                        <div class="lab">
-                            <span class="off">Special Offer</span>
-                            <span class="price">$500</span>
-                        </div>
-                        <p>Sunny Barcolena</p>
-                    </div>
-                </div>
+            <!-- Template card - will be cloned by JavaScript -->
+            <template id="destination-card-template">
                 <div class="card">
                     <div class="trav">
-                        <img class="desto" src="land-img/blue dalmatia.jpg" alt="">
+                        <img class="desto" src="" alt="">
                         <div class="lab">
-                            <span class="off">Special Offer</span>
-                            <span class="price">$500</span>
+                            <span class="off"></span>
+                            <span class="price"></span>
                         </div>
-                        <p>Blue Dlamatia</p>
+                        <p></p>
                     </div>
                 </div>
-            </div>
-            <div class="se">
-                <div class="card sarak">
-                    <div class="trav">
-                        <img class="desto" src="land-img/kohisung taiwan.jpg" alt="">
-                        <div class="lab">
-                            <span class="off">Special Offer</span>
-                            <span class="price">$500</span>
-                        </div>
-                        <p>Kohisung Taiwan</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="trav">
-                        <img class="desto" src="land-img/tasteful mauritius.jpg" alt="">
-                        <div class="lab">
-                            <span class="off">Special Offer</span>
-                            <span class="price">$500</span>
-                        </div>
-                        <p>Tasteful mauritius</p>
-                    </div>
-                </div>
-            </div>
-            <div class="se">
-                <div class="card sarak">
-                    <div class="trav">
-                        <img class="desto" src="land-img/trip to ancient roam.jpg" alt="">
-                        <div class="lab">
-                            <span class="off">Special Offer</span>
-                            <span class="price">$500</span>
-                        </div>
-                        <p>Ancient Roam</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="PackageDetails.html" style="text-decoration: none; color: inherit;">
-                        <div class="trav">
-                            <img class="desto" src="land-img/tasteful mauritius.jpg" alt="">
-                            <div class="lab">
-                                <span class="off">Special Offer</span>
-                                <span class="price">$500</span>
-                            </div>
-                            <p>Tasteful Mauritius</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            </template>
         </div>
     </div>
 
@@ -769,13 +692,11 @@
             <img src="beach-img/comma.png" alt="">
         </div>
         <div class="para font blue">
-            <p>Aliquam fringilla diam et sapien iaculis, at sollicitudin mi iaculis. Donec ac ullamcorper ante, quis
-                faucibus sapien. Maecenas ut tortor ac enim aliquam venenatis. Vestibulum ullamcorper, metus luctus
-                malesuada aliquam, mauris magna auctor nibh, et maximus enim est in eros. Proin ac nibh ac nibh
-                convallis
-                auctor quis ut arcu. Cras sagittis suscipit velit, eu gravida nisi congue at. Pellentesque quis
-                sollicitudin
-                est, ut aliquet justo. Phasellus maximus sagittis egestas.</p>
+            <p>"Travel is the only thing you buy that makes you richer." At Travello, we believe that the world is a
+                book, and those who do not travel read only a page. Our journey began with a simple dream: to make
+                global exploration accessible, authentic, and unforgettable for everyone. From the sapphire waters of
+                the Maldives to the historic streets of Rome, we invite you to write your own story with us. Let's make
+                your next adventure more than just a trip—let's make it a legacy.</p>
         </div>
         <div class="profile">
             <img src="beach-img/CEO.png" alt="">
@@ -909,6 +830,7 @@
             <script>
                 AOS.init();
             </script>
+            <script src="slider.js"></script>
             <script src="script.js"></script>
 </body>
 
