@@ -1,7 +1,7 @@
 // Load destinations from JSON and populate the slider
 async function loadDestinations() {
     try {
-        const response = await fetch('destinations.json');
+        const response = await fetch('data.json');
         const data = await response.json();
         const slider = document.querySelector('.slider.owl-carousel');
         const template = document.getElementById('destination-card-template');

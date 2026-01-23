@@ -365,12 +365,11 @@ nav {
 
 .slider .card {
     width: 100%;
-    max-width: 200px;
     margin: 0 auto;
 }
 
 .slider .card .trav {
-    height: 200px;
+    height: 280px;
     width: 100%;
 }
 
@@ -391,11 +390,13 @@ nav {
     text-align: center;
     color: white;
     position: absolute;
-    bottom: 25%;
+    bottom: 15%;
     font-weight: 600;
-    font-size: 2vw;
+    font-size: 1.8vw;
     left: 5%;
+    right: 5%;
     z-index: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .trav .off {
